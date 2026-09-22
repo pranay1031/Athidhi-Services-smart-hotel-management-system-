@@ -5,6 +5,22 @@ declare global {
         namespace Internal {
             interface Keys extends KeysRegistry {
                 explicit: {
+                    acl_ai_log_create: {
+                        table: 'sys_security_acl'
+                        id: '3c36adabd1ff4ef282011aee65e4e931'
+                    }
+                    acl_ai_log_delete: {
+                        table: 'sys_security_acl'
+                        id: 'f1330588b4c34ffdbf857827a88de88d'
+                    }
+                    acl_ai_log_read: {
+                        table: 'sys_security_acl'
+                        id: 'bdc1556e1f78494aab7a491ca6d60f50'
+                    }
+                    acl_ai_log_write: {
+                        table: 'sys_security_acl'
+                        id: '9dc22bce09ca4032852287ed9e98a606'
+                    }
                     acl_amenity_create: {
                         table: 'sys_security_acl'
                         id: 'ea40dd00d8304832acefe3166b87c959'
@@ -623,6 +639,10 @@ declare global {
                         table: 'sys_app_module'
                         id: 'c0c8e68abb0841d393a0087f8e1241ff'
                     }
+                    mod_ai_audit_logs: {
+                        table: 'sys_app_module'
+                        id: '7d6c92425357406cac8a483e88a120bb'
+                    }
                     mod_fd_checkin_checkout: {
                         table: 'sys_app_module'
                         id: 'd187a3edf0fc4ffbb19067405fc7a740'
@@ -831,6 +851,10 @@ declare global {
                         table: 'sys_module'
                         id: '603423a190c34cb491fb7ba85cdbce1c'
                     }
+                    prop_ai_audit_enabled: {
+                        table: 'sys_properties'
+                        id: '7beaffcbaf5a4ad393aff3df3f34235f'
+                    }
                     prop_ai_provider: {
                         table: 'sys_properties'
                         id: '420d8d7ba35e44e2a725a85ad14fd7fd'
@@ -847,13 +871,66 @@ declare global {
                         table: 'sys_properties'
                         id: 'a9aef12713a640c8b405b0763e69be12'
                     }
+                    prop_gemini_endpoint: {
+                        table: 'sys_properties'
+                        id: '7b5b0d60ee684bf2bd9b0275255e348c'
+                    }
                     prop_gemini_model: {
                         table: 'sys_properties'
                         id: '3dd598c6d41d429e875cb7ac2f772ec2'
                     }
+                    prop_gemini_timeout: {
+                        table: 'sys_properties'
+                        id: '5f60b30bdcb346ab950266412f1a23fd'
+                    }
                     prop_hotel_name: {
                         table: 'sys_properties'
                         id: '66736da279d343dabe8c2718b3c39cc4'
+                    }
+                    rest_gemini_api: {
+                        table: 'sys_rest_message'
+                        id: '4e4dd79eb73d4bffacd55cd2ab7dbee1'
+                    }
+                    rm_fn_hdr_api_key: {
+                        table: 'sys_rest_message_fn_headers'
+                        id: '7b20492cda12480bb18374d9e0345678'
+                    }
+                    rm_fn_hdr_content_type: {
+                        table: 'sys_rest_message_fn_headers'
+                        id: '2ad457492ad24afabeedd3b66d5a6ebe'
+                    }
+                    rm_fn_param_key: {
+                        table: 'sys_rest_message_fn_param_defs'
+                        id: 'aeb48ce452914be49e955f38c724e80d'
+                        deleted: true
+                    }
+                    rm_hdr_content_type: {
+                        table: 'sys_rest_message_headers'
+                        id: 'a2315feb9ea845bfb23b8530d5537ec3'
+                    }
+                    src_server_ai_action_handlers_ts: {
+                        table: 'sys_module'
+                        id: '90af5af3ecba4c7c9b888203785e4601'
+                    }
+                    src_server_ai_action_registry_ts: {
+                        table: 'sys_module'
+                        id: '8c362478143d4d848e65999d800fd05e'
+                    }
+                    src_server_ai_ai_gateway_ts: {
+                        table: 'sys_module'
+                        id: 'd78c405177954da58ca8f3472dc21e59'
+                    }
+                    src_server_ai_gemini_service_ts: {
+                        table: 'sys_module'
+                        id: '083dc5ec633741ac93afed50acca5938'
+                    }
+                    src_server_ai_tests_ai_security_tests_ts: {
+                        table: 'sys_module'
+                        id: '0a76ae36c344431ea9efe23bbe2e2d8d'
+                    }
+                    src_server_ai_types_ts: {
+                        table: 'sys_module'
+                        id: '0c704df7f88b43c0ab13155168f450cf'
                     }
                     'src_server_business-rules_fnb_inventory_ts': {
                         table: 'sys_module'
@@ -874,6 +951,11 @@ declare global {
                     src_server_script_ts: {
                         table: 'sys_module'
                         id: 'eb7462528de74158990aa407e130c90a'
+                        deleted: true
+                    }
+                    test_rest_msg: {
+                        table: 'sys_rest_message'
+                        id: '0cfc21ef8a664f2f9f1fd001c17f6299'
                         deleted: true
                     }
                     ui_act_check_in: {
@@ -1243,6 +1325,19 @@ declare global {
                             name: 'x_2120492_athidhi_incident'
                             element: 'incident_number'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: '0523b56be3044aab82ce5ef239e65ef4'
+                        key: {
+                            sys_security_acl: '3c36adabd1ff4ef282011aee65e4e931'
+                            sys_user_role: {
+                                id: '0e2c8b4a8bd0443fb576b6f6b6349fbe'
+                                key: {
+                                    name: 'x_2120492_athidhi.manager'
+                                }
+                            }
                         }
                     },
                     {
@@ -1731,6 +1826,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '0d130f7ae202408fb930d3d8a0d2bae4'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'execution_duration_ms'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '0d29017ba6ee4c949b9d26ff7a0ec7d4'
                         key: {
@@ -1953,6 +2056,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: '12e55192a85d4a3381b654bed98b07f9'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'action_result'
+                            value: 'VALIDATION_ERROR'
+                        }
+                    },
+                    {
                         table: 'sys_ui_action_role'
                         id: '13739de2f22b4f00b3c07725aaa547ed'
                         key: {
@@ -1980,6 +2092,15 @@ declare global {
                             name: 'x_2120492_athidhi_incident'
                             element: 'category'
                             value: 'room_issue'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '14cf6a7c9db34830bc099727ecac5e78'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'request_category'
+                            value: 'service_catalog'
                         }
                     },
                     {
@@ -2074,6 +2195,15 @@ declare global {
                             name: 'x_2120492_athidhi_maintenance_request'
                             element: 'category'
                             value: 'other'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '1700bc5fd7f94ee6ba1eca574bfde419'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'request_category'
+                            value: 'security_violation'
                         }
                     },
                     {
@@ -2235,6 +2365,15 @@ declare global {
                     },
                     {
                         table: 'sys_choice'
+                        id: '19640e62a4724fa396d157dc3a9d8563'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'request_category'
+                            value: 'faq'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
                         id: '19a24385990a4211abb26e266b303ace'
                         key: {
                             name: 'x_2120492_athidhi_work_task'
@@ -2390,6 +2529,15 @@ declare global {
                                     name: 'x_2120492_athidhi.admin'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '1caebef92f0143eabe4d474451fe5e45'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'action_result'
+                            value: 'PROVIDER_ERROR'
                         }
                     },
                     {
@@ -2604,6 +2752,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '2019acba71eb46be8c980be724eac346'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'model'
+                        }
+                    },
+                    {
                         table: 'sys_ui_action_role'
                         id: '202da4f482254898a7ca36d10686934b'
                         key: {
@@ -2727,6 +2883,15 @@ declare global {
                             name: 'x_2120492_athidhi_staff_profile'
                             element: 'active'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '22f15be457354e5aa45e36b08b150542'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'action_result'
+                            value: 'INFORMATION'
                         }
                     },
                     {
@@ -2868,6 +3033,15 @@ declare global {
                                     name: 'x_2120492_athidhi.maintenance'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '26402cb19eb3425abc9f6ac9ba42833f'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'action_result'
+                            language: 'en'
                         }
                     },
                     {
@@ -3161,6 +3335,14 @@ declare global {
                             name: 'x_2120492_athidhi_maintenance_request'
                             element: 'category'
                             value: 'hvac'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '2b256e2e985c4fe38ce3ace5533c52c3'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'action_result'
                         }
                     },
                     {
@@ -3587,11 +3769,28 @@ declare global {
                     },
                     {
                         table: 'sys_documentation'
+                        id: '35f4c63162554743bd025c2ee4da0315'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'NULL'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
                         id: '361bf090042445ce841e0033b63eca7b'
                         key: {
                             name: 'x_2120492_athidhi_inventory_transaction'
                             element: 'reference_type'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '3654ee4ec7514875bde9cefa06c6efa2'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'success'
                         }
                     },
                     {
@@ -4145,6 +4344,27 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '41903fbcc07d4abe931301e694b8e737'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'logged_at'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: '41f098ab417a49b8b49399894a830913'
+                        key: {
+                            sys_security_acl: '3c36adabd1ff4ef282011aee65e4e931'
+                            sys_user_role: {
+                                id: 'bd9b587c1f9047609d32f4eea97e73bb'
+                                key: {
+                                    name: 'x_2120492_athidhi.restaurant'
+                                }
+                            }
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: '41f19ad61ceb4a89bce33c008ed9c2be'
                         key: {
@@ -4195,6 +4415,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: '429fea79d7d14e4891a1ee6f3bc0bfde'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'request_category'
+                            value: 'stay'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: '42bb8838e535495d888f6f021f44a78d'
                         key: {
@@ -4221,6 +4450,14 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_service_catalog_item'
                             element: 'estimated_minutes'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '4312958c0fda4460bd6ab5583a97132b'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'requested_action'
                         }
                     },
                     {
@@ -4269,6 +4506,15 @@ declare global {
                             name: 'x_2120492_athidhi_service_request'
                             element: 'request_type'
                             value: 'maintenance'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '43ea963e1e3c40418ef4d17151b0a986'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'action_result'
+                            value: 'SYSTEM_ERROR'
                         }
                     },
                     {
@@ -4809,6 +5055,15 @@ declare global {
                     },
                     {
                         table: 'sys_documentation'
+                        id: '4cd1862ffc2d47f4b995c2b221652c0a'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'user_role'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
                         id: '4d15f98ecca248589c6095e815502fc8'
                         key: {
                             name: 'x_2120492_athidhi_incident'
@@ -4862,6 +5117,15 @@ declare global {
                             name: 'x_2120492_athidhi_work_task'
                             element: 'state'
                             value: 'completed'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '4d6654dd368f466fbd55fc2eb76094a4'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'execution_duration_ms'
+                            language: 'en'
                         }
                     },
                     {
@@ -5219,6 +5483,15 @@ declare global {
                     },
                     {
                         table: 'sys_documentation'
+                        id: '525cfcbe7e0644d382ab5338eaf7a5d9'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'provider'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
                         id: '52659aec932848e28fae675e00e04474'
                         key: {
                             name: 'x_2120492_athidhi_guest'
@@ -5349,6 +5622,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: '54bced6253b64426bd9835f8e9955a4a'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'action_result'
+                            value: 'TIMEOUT'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: '55027bf5d14d4d7f964319fffebb2891'
                         key: {
@@ -5393,6 +5675,15 @@ declare global {
                             name: 'x_2120492_athidhi_department'
                             element: 'name'
                             value: 'restaurant'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '573fa52aaa554d7494ee74b87add6702'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'requested_action'
+                            language: 'en'
                         }
                     },
                     {
@@ -5473,6 +5764,15 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_guest_preference'
                             element: 'active'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '59a1b44760534184a88fa4f446b9c2c6'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'error_category'
+                            language: 'en'
                         }
                     },
                     {
@@ -5567,6 +5867,15 @@ declare global {
                                     name: 'x_2120492_athidhi.manager'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '5ac733f92a554ea8ad846004f4efb745'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'success'
+                            language: 'en'
                         }
                     },
                     {
@@ -5883,6 +6192,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: '621ea8ac0bd64baeb907be618a19f467'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'request_category'
+                            value: 'unknown'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '628b665f0f52480f924502f90f5c7e67'
                         key: {
@@ -5953,6 +6271,14 @@ declare global {
                             name: 'x_2120492_athidhi_incident'
                             element: 'priority'
                             value: 'low'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '640020c6dca1475baba4d556d130641e'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'log_number'
                         }
                     },
                     {
@@ -6110,6 +6436,19 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_security_acl_role'
+                        id: '66f3b8bf9584430cb144d60e0869e995'
+                        key: {
+                            sys_security_acl: 'bdc1556e1f78494aab7a491ca6d60f50'
+                            sys_user_role: {
+                                id: '0e2c8b4a8bd0443fb576b6f6b6349fbe'
+                                key: {
+                                    name: 'x_2120492_athidhi.manager'
+                                }
+                            }
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: '670b858e4be443079f4ffa05281b6480'
                         key: {
@@ -6123,6 +6462,15 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_food_order'
                             element: 'order_type'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '6761b98555b14139bae42f1410caa8b3'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'action_result'
+                            value: 'ACTION_REQUIRED'
                         }
                     },
                     {
@@ -6373,6 +6721,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice_set'
+                        id: '6aa3ae6b35fb4ac297e74fe055bd797e'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'request_category'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '6b489658c04b45cb93518dac8f226616'
                         key: {
@@ -6548,6 +6904,15 @@ declare global {
                     },
                     {
                         table: 'sys_choice'
+                        id: '6e4aba4b539a44349bfae26a0b02fc2f'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'request_category'
+                            value: 'dining'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
                         id: '6f116cef422c44968d98ae688a383ccc'
                         key: {
                             name: 'x_2120492_athidhi_service_catalog_item'
@@ -6585,6 +6950,19 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_security_acl_role'
+                        id: '6fc2544e77db49589aad63e66127bfc0'
+                        key: {
+                            sys_security_acl: 'f1330588b4c34ffdbf857827a88de88d'
+                            sys_user_role: {
+                                id: 'b45ac46436c14974b223c8bff451f7e8'
+                                key: {
+                                    name: 'x_2120492_athidhi.admin'
+                                }
+                            }
+                        }
+                    },
+                    {
                         table: 'sys_choice_set'
                         id: '6fedff55a80041f8877d5c15769e0388'
                         key: {
@@ -6617,6 +6995,14 @@ declare global {
                             name: 'x_2120492_athidhi_service_catalog_item'
                             element: 'name'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '705cdcd4eaa743278c2d2904f9077f6b'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'user'
                         }
                     },
                     {
@@ -7013,6 +7399,13 @@ declare global {
                         }
                     },
                     {
+                        table: 'ua_table_licensing_config'
+                        id: '76d0ad3e49ba4438bb17bb045893c4ca'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: '7712d166b9dd45368f29d661049a5a0e'
                         key: {
@@ -7135,12 +7528,29 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '79286f07e9c441ea85ba056ad12928f5'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'NULL'
+                        }
+                    },
+                    {
                         table: 'sys_choice'
                         id: '793795449be94d68b9ff681cbf464ab2'
                         key: {
                             name: 'x_2120492_athidhi_menu'
                             element: 'menu_type'
                             value: 'dinner'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '794eb5fe748d49b98adc916abf7cf360'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'user'
+                            language: 'en'
                         }
                     },
                     {
@@ -7192,6 +7602,15 @@ declare global {
                         key: {
                             category: 'x_2120492_athidhi_service_catalog_item'
                             prefix: 'CAT'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '7a178beb834e406fa1e7064703e709a1'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'model'
+                            language: 'en'
                         }
                     },
                     {
@@ -7284,6 +7703,14 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_stay'
                             element: 'status'
+                        }
+                    },
+                    {
+                        table: 'sys_choice_set'
+                        id: '7b9970ded41c44c6adde898b46edb56c'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'action_result'
                         }
                     },
                     {
@@ -7386,6 +7813,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '7cef349b98f0473b81803c83829692ab'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'user_role'
+                        }
+                    },
+                    {
                         table: 'ua_table_licensing_config'
                         id: '7d2509a2ad60443dbc71eeaeacb3250f'
                         key: {
@@ -7478,6 +7913,15 @@ declare global {
                         id: '7e370e3ec13e4fcab9d46616f3b2eda5'
                         key: {
                             name: 'x_2120492_athidhi_room'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '7e5d0eefee644ae1b0febd78f64e2676'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'request_category'
+                            value: 'operations'
                         }
                     },
                     {
@@ -7605,6 +8049,15 @@ declare global {
                                     name: 'x_2120492_athidhi.receptionist'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '815e7e195bad459daf07c06a0d56e36b'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'action_result'
+                            value: 'UNSUPPORTED_ACTION'
                         }
                     },
                     {
@@ -8611,6 +9064,19 @@ declare global {
                     },
                     {
                         table: 'sys_security_acl_role'
+                        id: '95bb9ab30c544557bd7fce4742ff4c54'
+                        key: {
+                            sys_security_acl: 'bdc1556e1f78494aab7a491ca6d60f50'
+                            sys_user_role: {
+                                id: 'b45ac46436c14974b223c8bff451f7e8'
+                                key: {
+                                    name: 'x_2120492_athidhi.admin'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
                         id: '95ef9a1e20eb4390970cbe6ea78daa5a'
                         key: {
                             sys_security_acl: '787aa58f789a412ca81e624277ad99f3'
@@ -9143,6 +9609,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: 'a06fe2f4677a44d2ae74b755604db890'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'request_category'
+                        }
+                    },
+                    {
                         table: 'sys_choice'
                         id: 'a0794c02e09a4c6ab60714f1983bd82d'
                         key: {
@@ -9162,6 +9636,15 @@ declare global {
                                     name: 'x_2120492_athidhi.housekeeping'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'a0e401f5d2ee44acbd2caab30fd70d36'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'request_category'
+                            value: 'housekeeping'
                         }
                     },
                     {
@@ -9454,10 +9937,31 @@ declare global {
                     },
                     {
                         table: 'sys_dictionary'
+                        id: 'a83ca8eb103e4dec81d96f9cbf7329a7'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'summary'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
                         id: 'a84f0c4d0aa244109f638de7fdf58b50'
                         key: {
                             name: 'x_2120492_athidhi_menu'
                             element: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: 'a874c89f78b24ee9b27a2faf63ff18b1'
+                        key: {
+                            sys_security_acl: '9dc22bce09ca4032852287ed9e98a606'
+                            sys_user_role: {
+                                id: 'b45ac46436c14974b223c8bff451f7e8'
+                                key: {
+                                    name: 'x_2120492_athidhi.admin'
+                                }
+                            }
                         }
                     },
                     {
@@ -9837,6 +10341,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: 'aee89a5108ed4c39b8817144de58347b'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'action_result'
+                            value: 'SUCCESS'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: 'af467668665b4870b4565db7d361a771'
                         key: {
@@ -9907,6 +10420,14 @@ declare global {
                             name: 'x_2120492_athidhi_guest_preference'
                             element: 'preference_type'
                             value: 'food'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'b0990ff6b342477cb83beac9a0dea2c9'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'provider'
                         }
                     },
                     {
@@ -10314,6 +10835,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: 'b68d12b284a04cc6bc6701f5a37e8c79'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'request_category'
+                            value: 'maintenance'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: 'b6a8cfa6f39c4bb582c7ab4764fee5f2'
                         key: {
@@ -10390,6 +10920,19 @@ declare global {
                     },
                     {
                         table: 'sys_security_acl_role'
+                        id: 'b82b33277bf24fbb9fbbfc6c244a3478'
+                        key: {
+                            sys_security_acl: '3c36adabd1ff4ef282011aee65e4e931'
+                            sys_user_role: {
+                                id: 'b45ac46436c14974b223c8bff451f7e8'
+                                key: {
+                                    name: 'x_2120492_athidhi.admin'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
                         id: 'b8e45ec5a61d41ccb2bddafa0f424275'
                         key: {
                             sys_security_acl: '346e645b5ba241aa8a0e4e347d73580b'
@@ -10429,6 +10972,15 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_reservation'
                             element: 'special_requests'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'b9223fb61ad6413988913d0330732aa5'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'request_category'
+                            language: 'en'
                         }
                     },
                     {
@@ -10742,6 +11294,19 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_service_request_item'
                             element: 'catalog_item'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: 'bdf521116c5b4df6bcb7b99fd837c351'
+                        key: {
+                            sys_security_acl: '3c36adabd1ff4ef282011aee65e4e931'
+                            sys_user_role: {
+                                id: '8f68f11dd010432ba80972aa8ac2b77d'
+                                key: {
+                                    name: 'x_2120492_athidhi.housekeeping'
+                                }
+                            }
                         }
                     },
                     {
@@ -11253,6 +11818,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: 'c92d0e9c1c0f4ecbb200240cf203ab04'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'request_category'
+                            value: 'reservation'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: 'ca1a3aa380304cddaf23b3d6fbaa7c7b'
                         key: {
@@ -11295,6 +11869,15 @@ declare global {
                                     name: 'x_2120492_athidhi.manager'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'cb465888c3924245b471011b13d08339'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'log_number'
+                            language: 'en'
                         }
                     },
                     {
@@ -11393,6 +11976,14 @@ declare global {
                         id: 'ce0d9423d5874a71b7fd93bf4098a099'
                         key: {
                             endpoint: 'x_2120492_athidhi_housekeeping_workspace.do'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'cef3bbe02a2447618b10b42175a0aa83'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'error_category'
                         }
                     },
                     {
@@ -12104,6 +12695,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: 'db2564ec63824e6d96b0689b95c5f93e'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'action_result'
+                            value: 'RATE_LIMITED'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: 'db51a62efef94f06b1d49efeda44a666'
                         key: {
@@ -12234,6 +12834,15 @@ declare global {
                     },
                     {
                         table: 'sys_choice'
+                        id: 'ddc7771a5d814a7c99300ec1e183b599'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'action_result'
+                            value: 'UNAUTHORIZED'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
                         id: 'dddd42dfeca74e3393ced884fa7dfcc0'
                         key: {
                             name: 'x_2120492_athidhi_inventory_item'
@@ -12256,6 +12865,19 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_service_request_item'
                             element: 'total_price'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: 'ddffa57ecda646e6b99e8758d1648c05'
+                        key: {
+                            sys_security_acl: '3c36adabd1ff4ef282011aee65e4e931'
+                            sys_user_role: {
+                                id: '240a492786cd43859dd397028582ac16'
+                                key: {
+                                    name: 'x_2120492_athidhi.receptionist'
+                                }
+                            }
                         }
                     },
                     {
@@ -12690,6 +13312,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: 'e565be4c35d0475fa1a9b1a93e6728d4'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'logged_at'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: 'e58372d09ba44955967f04f5c352b97e'
                         key: {
@@ -12721,6 +13352,15 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_amenity'
                             element: 'active'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'e5e8781e2a894267860a204bd072b9da'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                            element: 'summary'
+                            language: 'en'
                         }
                     },
                     {
@@ -13261,6 +13901,19 @@ declare global {
                     },
                     {
                         table: 'sys_security_acl_role'
+                        id: 'f1830b88c0c54ffe820a5f9c8cf41277'
+                        key: {
+                            sys_security_acl: '3c36adabd1ff4ef282011aee65e4e931'
+                            sys_user_role: {
+                                id: '7a58b2b3dd1e4586ad7b6fb331fb8788'
+                                key: {
+                                    name: 'x_2120492_athidhi.guest'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
                         id: 'f18a3ab18aac4f10a92717c02b5a24f2'
                         key: {
                             sys_security_acl: '346e645b5ba241aa8a0e4e347d73580b'
@@ -13303,6 +13956,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_number'
+                        id: 'f27b0df041cf4675abb5a270416e5469'
+                        key: {
+                            category: 'x_2120492_athidhi_ai_interaction_log'
+                            prefix: 'AIL'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: 'f27e2f4147194d1da862aaab772d3e55'
                         key: {
@@ -13330,6 +13991,14 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_work_task'
                             element: 'task_number'
+                        }
+                    },
+                    {
+                        table: 'sys_rest_message_fn'
+                        id: 'f32980213ec746ceadb1313273b6bfa3'
+                        key: {
+                            rest_message: '4e4dd79eb73d4bffacd55cd2ab7dbee1'
+                            function_name: 'generateContent'
                         }
                     },
                     {
@@ -13689,6 +14358,13 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_db_object'
+                        id: 'facc52b110204209b767b8bb64faa066'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_interaction_log'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: 'fb244e677bc34206bfe9534239c65301'
                         key: {
@@ -13738,6 +14414,19 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_amenity'
                             element: 'category'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: 'fb797420d2034c5c9bbbda6908d7af3a'
+                        key: {
+                            sys_security_acl: '3c36adabd1ff4ef282011aee65e4e931'
+                            sys_user_role: {
+                                id: '3e9f6959b3014deca7ed1004952c0462'
+                                key: {
+                                    name: 'x_2120492_athidhi.maintenance'
+                                }
+                            }
                         }
                     },
                     {

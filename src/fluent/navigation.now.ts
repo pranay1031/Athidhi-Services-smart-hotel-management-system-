@@ -820,3 +820,18 @@ Record({
         active: true,
     },
 })
+
+
+Record({
+    $id: Now.ID['mod_ai_audit_logs'],
+    table: 'sys_app_module',
+    data: {
+        title: 'AI Interaction Logs',
+        application: athidhiApplicationMenu,
+        name: 'x_2120492_athidhi_ai_interaction_log',
+        link_type: 'LIST',
+        order: 740,
+        roles: [managerRole, adminRole],
+        active: true,
+    },
+})
