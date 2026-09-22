@@ -1,0 +1,21 @@
+﻿.DS_Store
+.now/
+dist/
+node_modules/
+target/
+*.tsbuildinfo
+.jest_cache
+
+# Critical Secrets & Env
+.env
+.env.*
+!.env.example
+credentials.json
+secrets.json
+*.key
+*.pem
+*.cert
+*.crt
+.now-sdk/
+.snc/
+@types/
