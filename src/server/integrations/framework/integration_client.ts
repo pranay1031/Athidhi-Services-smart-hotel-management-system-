@@ -6,7 +6,7 @@ import {
     IntegrationAuditLogEntry,
     ALLOWLISTED_DOMAINS,
     SENSITIVE_KEY_PATTERNS,
-} from './types';
+} from './types.ts';
 
 declare const gs: any;
 declare const sn_ws: any;
