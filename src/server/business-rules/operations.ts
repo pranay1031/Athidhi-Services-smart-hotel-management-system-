@@ -1,4 +1,4 @@
-﻿import { gs, GlideRecord } from '@servicenow/glide'
+import { gs, GlideRecord, GlideDateTime } from '@servicenow/glide'
 
 /**
  * 1. Reservation Validation
@@ -113,7 +113,7 @@ export function handleReservationCheckIn(current: any, previous: any): void {
         stayGR.setValue('reservation', current.getUniqueValue())
         stayGR.setValue('guest', guestId)
         stayGR.setValue('room', roomId)
-        stayGR.setValue('actual_check_in', gs.nowDateTime())
+        stayGR.setValue('actual_check_in', new GlideDateTime().getValue())
         stayGR.setValue('expected_check_out', current.getValue('check_out'))
         stayGR.setValue('status', 'checked_in')
         stayGR.setValue('adults', current.getValue('adults') || 1)
@@ -167,7 +167,7 @@ export function handleStayCheckOut(current: any, previous: any): void {
             hkGR.setValue('status', 'pending')
             hkGR.setValue('inspection_required', true)
             hkGR.setValue('inspection_status', 'pending')
-            hkGR.setValue('scheduled_start', gs.nowDateTime())
+            hkGR.setValue('scheduled_start', new GlideDateTime().getValue())
             hkGR.setValue('notes', 'Automated check-out cleaning generated from stay departure.')
             hkGR.insert()
         }
@@ -192,19 +192,24 @@ export function handleHousekeepingCompletion(current: any, previous: any): void 
     if (!roomId) return
 
     const taskStatus = current.getValue('status')
-    const inspectionRequired = current.getValue('inspection_required') === 'true' || current.getValue('inspection_required') === true
+    const rawInspReq = current.getValue('inspection_required')
+    const inspectionRequired = rawInspReq === '1' || rawInspReq === 1 || rawInspReq === 'true' || rawInspReq === true
     const inspectionStatus = current.getValue('inspection_status')
 
     const roomGR = new GlideRecord('x_2120492_athidhi_room')
     if (!roomGR.get(roomId)) return
 
     if (taskStatus === 'completed') {
-        if (!inspectionRequired || inspectionStatus === 'passed') {
+        if (inspectionStatus === 'failed') {
+            roomGR.setValue('status', 'cleaning')
+            roomGR.setValue('housekeeping_status', 'dirty')
+            roomGR.update()
+        } else if (!inspectionRequired || inspectionStatus === 'passed') {
             roomGR.setValue('housekeeping_status', 'clean')
             roomGR.setValue('status', 'available')
             roomGR.setValue('occupancy_status', 'vacant')
             roomGR.update()
-        } else if (inspectionRequired && inspectionStatus !== 'passed') {
+        } else {
             roomGR.setValue('housekeeping_status', 'inspected')
             roomGR.setValue('status', 'cleaning')
             roomGR.update()
@@ -261,7 +266,7 @@ export function handleServiceRequestCreated(current: any, previous: any): void {
         wtGR.setValue('short_description', `Service Request [${reqType}]: ` + (current.getValue('description') || '').substring(0, 100))
         wtGR.setValue('description', current.getValue('description'))
         wtGR.setValue('state', 'open')
-        wtGR.setValue('opened_at', gs.nowDateTime())
+        wtGR.setValue('opened_at', new GlideDateTime().getValue())
         wtGR.insert()
     }
 
@@ -279,7 +284,7 @@ export function handleServiceRequestCreated(current: any, previous: any): void {
             mntGR.setValue('priority', current.getValue('priority') || 'medium')
             mntGR.setValue('description', current.getValue('description'))
             mntGR.setValue('status', 'new')
-            mntGR.setValue('reported_at', gs.nowDateTime())
+            mntGR.setValue('reported_at', new GlideDateTime().getValue())
             mntGR.insert()
         }
     }
@@ -304,7 +309,7 @@ export function handleMaintenanceResolved(current: any, previous: any): void {
         wtGR.query()
         while (wtGR.next()) {
             wtGR.setValue('state', 'completed')
-            wtGR.setValue('completed_at', gs.nowDateTime())
+            wtGR.setValue('completed_at', new GlideDateTime().getValue())
             wtGR.setValue('resolution_notes', current.getValue('resolution_notes') || 'Resolved by maintenance technician')
             wtGR.update()
         }
@@ -312,7 +317,7 @@ export function handleMaintenanceResolved(current: any, previous: any): void {
         const srGR = new GlideRecord('x_2120492_athidhi_service_request')
         if (srGR.get(serviceRequestId)) {
             srGR.setValue('status', 'completed')
-            srGR.setValue('completed_at', gs.nowDateTime())
+            srGR.setValue('completed_at', new GlideDateTime().getValue())
             srGR.setValue('resolution_notes', current.getValue('resolution_notes') || 'Resolved by maintenance technician')
             srGR.update()
         }
@@ -363,7 +368,7 @@ export function handleServiceRequestEscalated(current: any, previous: any): void
         incGR.setValue('short_description', 'Escalated Service Request: ' + current.getDisplayValue('request_number'))
         incGR.setValue('description', current.getValue('description'))
         incGR.setValue('state', 'new')
-        incGR.setValue('opened_at', gs.nowDateTime())
+        incGR.setValue('opened_at', new GlideDateTime().getValue())
         incGR.insert()
     }
 }

@@ -84,11 +84,12 @@ export const ALLOWLISTED_DOMAINS: string[] = [
 export const SENSITIVE_KEY_PATTERNS: RegExp[] = [
     /api[-_]?key/i,
     /auth[-_]?token/i,
+    /access[-_]?token/i,
     /bearer/i,
     /password/i,
     /secret/i,
     /private[-_]?key/i,
     /credentials/i,
     /webhook[-_]?url/i,
-    /access[-_]?token/i,
+    /(^|[-_])token/i,
 ];
