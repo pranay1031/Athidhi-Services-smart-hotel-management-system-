@@ -908,6 +908,10 @@ declare global {
                         table: 'sys_rest_message_headers'
                         id: 'a2315feb9ea845bfb23b8530d5537ec3'
                     }
+                    si_ai_concierge_ajax: {
+                        table: 'sys_script_include'
+                        id: 'a8910492cda12480bb18374d9e039999'
+                    }
                     src_server_ai_action_handlers_ts: {
                         table: 'sys_module'
                         id: '90af5af3ecba4c7c9b888203785e4601'
@@ -952,6 +956,10 @@ declare global {
                         table: 'sys_module'
                         id: 'eb7462528de74158990aa407e130c90a'
                         deleted: true
+                    }
+                    'src_server_script-includes_ai_concierge_ajax_js': {
+                        table: 'sys_module'
+                        id: 'fdc0a0f6c8a640aeae16afe89a89164d'
                     }
                     test_rest_msg: {
                         table: 'sys_rest_message'

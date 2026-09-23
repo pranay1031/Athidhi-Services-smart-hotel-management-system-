@@ -154,6 +154,82 @@ export const pageGuestPortal = UiPage({
             </div>
         </div>
     </section>
+
+    <!-- ATHIDHI AI CONCIERGE FLOATING WIDGET -->
+    <div id="athidhi-ai-container">
+        <!-- Floating Action Button Launcher -->
+        <button id="athidhi-ai-launcher" onclick="toggleConcierge()" aria-label="Open Athidhi AI Concierge" style="position: fixed; bottom: 24px; right: 24px; background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); color: white; border: none; border-radius: 50px; padding: 14px 22px; font-size: 15px; font-weight: 700; cursor: pointer; box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.4), 0 8px 10px -6px rgba(30, 58, 138, 0.2); display: flex; align-items: center; gap: 10px; z-index: 9999; transition: all 0.2s ease-in-out;">
+            <span style="font-size: 20px;">✨</span>
+            <span id="athidhi-ai-btn-text">AI Concierge</span>
+            <span style="display: inline-block; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 0 2px rgba(255,255,255,0.8);"></span>
+        </button>
+
+        <!-- Floating Chat Panel -->
+        <div id="athidhi-ai-widget" style="display: none; position: fixed; bottom: 85px; right: 24px; width: 400px; max-width: calc(100vw - 32px); height: 580px; max-height: calc(100vh - 110px); background: #ffffff; border-radius: 16px; box-shadow: 0 20px 35px -5px rgba(15, 23, 42, 0.25), 0 10px 15px -5px rgba(15, 23, 42, 0.1); border: 1px solid #e2e8f0; z-index: 9999; flex-direction: column; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+
+            <!-- Chat Header -->
+            <div style="background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: white; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="background: rgba(255, 255, 255, 0.15); width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px;">
+                        ✨
+                    </div>
+                    <div>
+                        <div style="font-size: 16px; font-weight: 700; letter-spacing: -0.3px;">Athidhi AI Concierge</div>
+                        <div style="font-size: 12px; color: #93c5fd; display: flex; align-items: center; gap: 6px;">
+                            <span style="display: inline-block; width: 6px; height: 6px; background: #22c55e; border-radius: 50%;"></span>
+                            <span>Online | 24/7 Hotel Assistant</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 6px;">
+                    <button onclick="resetConciergeChat()" title="Reset Conversation" style="background: rgba(255,255,255,0.12); border: none; color: white; width: 30px; height: 30px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 14px;">↺</button>
+                    <button onclick="toggleConcierge()" title="Close Concierge" style="background: rgba(255,255,255,0.12); border: none; color: white; width: 30px; height: 30px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 14px;">✕</button>
+                </div>
+            </div>
+
+            <!-- Quick Action Chips Bar -->
+            <div id="athidhi-chips-bar" style="background: #f8fafc; border-bottom: 1px solid #e2e8f0; padding: 10px 14px; display: flex; gap: 8px; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch;">
+                <button onclick="quickPrompt('What are the check-in and check-out times?')" style="background: white; border: 1px solid #cbd5e1; color: #334155; font-size: 12px; padding: 6px 12px; border-radius: 14px; cursor: pointer; flex-shrink: 0; font-weight: 500;">⏰ Timings</button>
+                <button onclick="quickPrompt('Show active dining menu')" style="background: white; border: 1px solid #cbd5e1; color: #334155; font-size: 12px; padding: 6px 12px; border-radius: 14px; cursor: pointer; flex-shrink: 0; font-weight: 500;">🍽️ Menu</button>
+                <button onclick="quickPrompt('Please send 2 extra fresh towels to my room')" style="background: white; border: 1px solid #cbd5e1; color: #334155; font-size: 12px; padding: 6px 12px; border-radius: 14px; cursor: pointer; flex-shrink: 0; font-weight: 500;">🛎️ Extra Towels</button>
+                <button onclick="quickPrompt('My room air conditioning is not cooling properly')" style="background: white; border: 1px solid #cbd5e1; color: #334155; font-size: 12px; padding: 6px 12px; border-radius: 14px; cursor: pointer; flex-shrink: 0; font-weight: 500;">🔧 Report AC</button>
+                <button onclick="quickPrompt('What is the status of my food order?')" style="background: white; border: 1px solid #cbd5e1; color: #334155; font-size: 12px; padding: 6px 12px; border-radius: 14px; cursor: pointer; flex-shrink: 0; font-weight: 500;">📦 Food Order</button>
+            </div>
+
+            <!-- Messages Thread Scroll Area -->
+            <div id="athidhi-chat-messages" style="flex: 1; padding: 16px; overflow-y: auto; background: #fdfdfd; display: flex; flex-direction: column; gap: 14px;">
+                <!-- Welcome Message Bubble -->
+                <div class="msg-bubble-ai" style="align-self: flex-start; max-width: 85%; background: #f1f5f9; color: #1e293b; padding: 12px 16px; border-radius: 14px 14px 14px 2px; font-size: 13.5px; line-height: 1.5; border: 1px solid #e2e8f0; box-shadow: 0 1px 2px rgba(0,0,0,0.04);">
+                    <div style="font-weight: 700; font-size: 11px; text-transform: uppercase; color: #1e3a8a; margin-bottom: 4px; display: flex; align-items: center; gap: 4px;">
+                        <span>✨</span> Athidhi AI Concierge
+                    </div>
+                    Namaste! I am your personal Athidhi AI Concierge. I can assist you with dining menus, housekeeping requests, room maintenance reports, hotel amenities, and stay details. How may I be of service today?
+                </div>
+            </div>
+
+            <!-- Typing / Loading Indicator -->
+            <div id="athidhi-chat-typing" style="display: none; padding: 8px 18px; font-size: 12px; color: #64748b; background: #f8fafc; border-top: 1px solid #f1f5f9; display: flex; align-items: center; gap: 8px;">
+                <div style="display: flex; gap: 4px;">
+                    <span style="display: inline-block; width: 6px; height: 6px; background: #3b82f6; border-radius: 50%;"></span>
+                    <span style="display: inline-block; width: 6px; height: 6px; background: #1e3a8a; border-radius: 50%;"></span>
+                    <span style="display: inline-block; width: 6px; height: 6px; background: #3b82f6; border-radius: 50%;"></span>
+                </div>
+                <span>Athidhi Concierge is thinking...</span>
+            </div>
+
+            <!-- Input Footer -->
+            <div style="background: white; border-top: 1px solid #e2e8f0; padding: 12px 14px; display: flex; gap: 8px; align-items: center;">
+                <input id="athidhi-chat-input" type="text" placeholder="Type your request or question..." onkeypress="onChatInputKeyPress(event)" style="flex: 1; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 20px; font-size: 13.5px; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='#1e3a8a'" onblur="this.style.borderColor='#cbd5e1'" />
+                <button id="athidhi-chat-send" onclick="sendConciergeMessage()" style="background: #1e3a8a; color: white; border: none; border-radius: 50%; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; transition: background 0.2s;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
 </div>
 `,
     clientScript: `
@@ -180,6 +256,251 @@ function loadGuestData() {
     // Queries current user stays and populate the portal views
     // Respects database ACLs (x_2120492_athidhi_stay read restricted to guest email)
 }
+
+var conciergeOpen = false;
+var pendingActionData = null;
+var isProcessing = false;
+
+function toggleConcierge() {
+    var widget = document.getElementById('athidhi-ai-widget');
+    var launcher = document.getElementById('athidhi-ai-launcher');
+    if (!widget) return;
+
+    conciergeOpen = !conciergeOpen;
+    if (conciergeOpen) {
+        widget.style.display = 'flex';
+        scrollChatToBottom();
+        var input = document.getElementById('athidhi-chat-input');
+        if (input) input.focus();
+    } else {
+        widget.style.display = 'none';
+    }
+}
+
+function resetConciergeChat() {
+    pendingActionData = null;
+    var container = document.getElementById('athidhi-chat-messages');
+    if (!container) return;
+
+    container.innerHTML = '<div class="msg-bubble-ai" style="align-self: flex-start; max-width: 85%; background: #f1f5f9; color: #1e293b; padding: 12px 16px; border-radius: 14px 14px 14px 2px; font-size: 13.5px; line-height: 1.5; border: 1px solid #e2e8f0; box-shadow: 0 1px 2px rgba(0,0,0,0.04);"><div style="font-weight: 700; font-size: 11px; text-transform: uppercase; color: #1e3a8a; margin-bottom: 4px; display: flex; align-items: center; gap: 4px;"><span>✨</span> Athidhi AI Concierge</div>Namaste! I am your personal Athidhi AI Concierge. I can assist you with dining menus, housekeeping requests, room maintenance reports, hotel amenities, and stay details. How may I be of service today?</div>';
+}
+
+function quickPrompt(text) {
+    var input = document.getElementById('athidhi-chat-input');
+    if (input) {
+        input.value = text;
+        sendConciergeMessage();
+    }
+}
+
+function onChatInputKeyPress(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        sendConciergeMessage();
+    }
+}
+
+function escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
+function scrollChatToBottom() {
+    var container = document.getElementById('athidhi-chat-messages');
+    if (container) {
+        setTimeout(function() {
+            container.scrollTop = container.scrollHeight;
+        }, 50);
+    }
+}
+
+function setProcessing(processing) {
+    isProcessing = processing;
+    var typing = document.getElementById('athidhi-chat-typing');
+    var sendBtn = document.getElementById('athidhi-chat-send');
+    var input = document.getElementById('athidhi-chat-input');
+    if (typing) typing.style.display = processing ? 'flex' : 'none';
+    if (sendBtn) sendBtn.disabled = processing;
+    if (input) input.disabled = processing;
+}
+
+function appendUserBubble(text) {
+    var container = document.getElementById('athidhi-chat-messages');
+    if (!container) return;
+
+    var bubble = document.createElement('div');
+    bubble.style.alignSelf = 'flex-end';
+    bubble.style.maxWidth = '85%';
+    bubble.style.background = '#1e3a8a';
+    bubble.style.color = '#ffffff';
+    bubble.style.padding = '10px 16px';
+    bubble.style.borderRadius = '14px 14px 2px 14px';
+    bubble.style.fontSize = '13.5px';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.boxShadow = '0 1px 2px rgba(0,0,0,0.1)';
+    bubble.innerText = text;
+    container.appendChild(bubble);
+    scrollChatToBottom();
+}
+
+function appendAiBubble(text, category) {
+    var container = document.getElementById('athidhi-chat-messages');
+    if (!container) return;
+
+    var bubble = document.createElement('div');
+    bubble.style.alignSelf = 'flex-start';
+    bubble.style.maxWidth = '85%';
+    bubble.style.background = '#ffffff';
+    bubble.style.color = '#1e293b';
+    bubble.style.padding = '12px 16px';
+    bubble.style.borderRadius = '14px 14px 14px 2px';
+    bubble.style.fontSize = '13.5px';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.border = '1px solid #e2e8f0';
+    bubble.style.boxShadow = '0 1px 3px rgba(0,0,0,0.05)';
+
+    var headerText = '✨ Athidhi AI Concierge';
+    if (category === 'VALIDATION_ERROR' || category === 'UNAUTHORIZED' || category === 'SYSTEM_ERROR') {
+        headerText = '⚠️ Athidhi Notice';
+        bubble.style.background = '#fef2f2';
+        bubble.style.borderColor = '#fecaca';
+    }
+
+    bubble.innerHTML = '<div style="font-weight: 700; font-size: 11px; text-transform: uppercase; color: #1e3a8a; margin-bottom: 4px;">' + headerText + '</div><div>' + escapeHtml(text) + '</div>';
+    container.appendChild(bubble);
+    scrollChatToBottom();
+}
+
+function appendConfirmationCard(message, pendingAction) {
+    var container = document.getElementById('athidhi-chat-messages');
+    if (!container) return;
+
+    pendingActionData = pendingAction;
+
+    var card = document.createElement('div');
+    card.id = 'current-confirmation-card';
+    card.style.alignSelf = 'flex-start';
+    card.style.maxWidth = '90%';
+    card.style.background = '#fffbeb';
+    card.style.border = '1px solid #fde68a';
+    card.style.borderRadius = '12px';
+    card.style.padding = '14px 16px';
+    card.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+
+    var actionTitle = 'Action Confirmation Required';
+    if (pendingAction && pendingAction.actionName) {
+        actionTitle = pendingAction.actionName.replace(/_/g, ' ').toUpperCase();
+    }
+
+    card.innerHTML =
+        '<div style="font-weight: 700; font-size: 12px; color: #b45309; text-transform: uppercase; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">' +
+            '<span>⚠️</span> ' + actionTitle +
+        '</div>' +
+        '<div style="font-size: 13.5px; color: #1e293b; line-height: 1.5; margin-bottom: 14px;">' +
+            escapeHtml(message) +
+        '</div>' +
+        '<div style="display: flex; gap: 8px;">' +
+            '<button id="btn-confirm-action" onclick="confirmPendingAction()" style="background: #059669; color: white; border: none; padding: 8px 14px; border-radius: 6px; font-size: 12.5px; font-weight: 600; cursor: pointer; flex: 1;">✓ Confirm &amp; Proceed</button>' +
+            '<button id="btn-cancel-action" onclick="cancelPendingAction()" style="background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; padding: 8px 14px; border-radius: 6px; font-size: 12.5px; font-weight: 600; cursor: pointer;">Cancel</button>' +
+        '</div>';
+
+    container.appendChild(card);
+    scrollChatToBottom();
+}
+
+function sendConciergeMessage() {
+    if (isProcessing) return;
+
+    var input = document.getElementById('athidhi-chat-input');
+    if (!input) return;
+    var query = input.value.trim();
+    if (!query) return;
+
+    input.value = '';
+    appendUserBubble(query);
+    setProcessing(true);
+
+    var ga = new GlideAjax('x_2120492_athidhi.AIConciergeAjax');
+    ga.addParam('sysparm_name', 'processChat');
+    ga.addParam('sysparm_user_query', query);
+
+    ga.getXMLAnswer(function(answer) {
+        setProcessing(false);
+        try {
+            var res = JSON.parse(answer);
+            if (res.requiresConfirmation && res.pendingAction) {
+                appendConfirmationCard(res.message, res.pendingAction);
+            } else {
+                appendAiBubble(res.message || 'I have completed your request.', res.category);
+            }
+        } catch (e) {
+            appendAiBubble('Athidhi Concierge encountered an error processing your inquiry. Please try again.', 'SYSTEM_ERROR');
+        }
+    });
+}
+
+function confirmPendingAction() {
+    if (isProcessing || !pendingActionData) return;
+
+    var card = document.getElementById('current-confirmation-card');
+    if (card) {
+        var confBtn = document.getElementById('btn-confirm-action');
+        var cancelBtn = document.getElementById('btn-cancel-action');
+        if (confBtn) confBtn.disabled = true;
+        if (cancelBtn) cancelBtn.disabled = true;
+    }
+
+    appendUserBubble('Confirm and proceed with request.');
+    setProcessing(true);
+
+    var ga = new GlideAjax('x_2120492_athidhi.AIConciergeAjax');
+    ga.addParam('sysparm_name', 'processChat');
+    ga.addParam('sysparm_user_query', 'Confirmed');
+    ga.addParam('sysparm_confirmed', 'true');
+    ga.addParam('sysparm_pending_action', JSON.stringify(pendingActionData));
+
+    ga.getXMLAnswer(function(answer) {
+        setProcessing(false);
+        pendingActionData = null;
+        try {
+            var res = JSON.parse(answer);
+            appendAiBubble(res.message || 'Action executed successfully.', res.category);
+        } catch (e) {
+            appendAiBubble('Failed to execute confirmed action. Please contact the front desk.', 'SYSTEM_ERROR');
+        }
+    });
+}
+
+function cancelPendingAction() {
+    pendingActionData = null;
+    var card = document.getElementById('current-confirmation-card');
+    if (card) {
+        var confBtn = document.getElementById('btn-confirm-action');
+        var cancelBtn = document.getElementById('btn-cancel-action');
+        if (confBtn) confBtn.disabled = true;
+        if (cancelBtn) cancelBtn.disabled = true;
+        card.style.opacity = '0.6';
+    }
+
+    var container = document.getElementById('athidhi-chat-messages');
+    if (!container) return;
+
+    var notice = document.createElement('div');
+    notice.style.alignSelf = 'center';
+    notice.style.color = '#64748b';
+    notice.style.fontSize = '12px';
+    notice.style.fontStyle = 'italic';
+    notice.style.margin = '4px 0';
+    notice.innerText = '— Request cancelled by guest —';
+    container.appendChild(notice);
+    scrollChatToBottom();
+}
+
 `,
 });
 

@@ -1,8 +1,9 @@
 import { gs, GlideRecord, GlideDateTime } from '@servicenow/glide';
 /**
- * Phase 5B — Central Server-Side AI Gateway
+ * Phase 5B / 5C — Central Server-Side AI Gateway
  * Authenticates user session, filters context, validates intent with allowlist,
- * invokes server-side business logic, logs audit entries, and returns controlled responses.
+ * enforces confirmation on write operations, invokes server-side business logic,
+ * logs audit entries, and returns controlled responses.
  */
 
 import {
@@ -79,6 +80,80 @@ export class AIGateway {
     public static processRequest(request: AIGatewayRequest): AIGatewayResponse {
         const startTime = Date.now();
         const session = AIGateway.resolveSessionContext();
+
+        // Step 0: Check for explicit confirmation of a pending write action
+        if (request && request.confirmed && request.pendingAction && request.pendingAction.actionName) {
+            const actionName = request.pendingAction.actionName;
+            const actionDef = getActionDefinition(actionName);
+            if (!actionDef) {
+                return AIGateway.createResponse(
+                    false,
+                    'UNSUPPORTED_ACTION',
+                    'The confirmed action "' + actionName + '" is not recognized or permitted in the hotel action registry.',
+                    session,
+                    startTime,
+                    'Confirmed Action Unsupported: ' + actionName,
+                    actionName,
+                    undefined,
+                    'UNSUPPORTED_ACTION'
+                );
+            }
+
+            if (!isActionAllowedForRole(actionDef, session.activeRole)) {
+                return AIGateway.createResponse(
+                    false,
+                    'UNAUTHORIZED',
+                    'Your role (' + session.activeRole + ') is not authorized to execute "' + actionName + '".',
+                    session,
+                    startTime,
+                    'Confirmed Action Unauthorized: ' + actionName,
+                    actionName,
+                    undefined,
+                    'ROLE_UNAUTHORIZED'
+                );
+            }
+
+            const valResult = validateActionParameters(actionDef, request.pendingAction.args || {});
+            if (!valResult.valid) {
+                return AIGateway.createResponse(
+                    false,
+                    'VALIDATION_ERROR',
+                    valResult.error || 'Parameter validation failed for confirmed action.',
+                    session,
+                    startTime,
+                    'Confirmed Action Parameter Validation Error',
+                    actionName,
+                    undefined,
+                    'INVALID_PARAMETERS'
+                );
+            }
+
+            try {
+                const handlerResult = AIGateway.dispatchAction(actionName, session, request.pendingAction.args || {});
+                return AIGateway.createResponse(
+                    true,
+                    'SUCCESS',
+                    handlerResult.message || 'Action confirmed and executed successfully.',
+                    session,
+                    startTime,
+                    'Action ' + actionName + ' confirmed and executed successfully',
+                    actionName,
+                    handlerResult
+                );
+            } catch (err: any) {
+                return AIGateway.createResponse(
+                    false,
+                    'SYSTEM_ERROR',
+                    'An error occurred during hotel operation execution.',
+                    session,
+                    startTime,
+                    'Handler Error: ' + (err.message || String(err)),
+                    actionName,
+                    undefined,
+                    'EXECUTION_FAILURE'
+                );
+            }
+        }
 
         if (!request || !request.userQuery || request.userQuery.trim() === '') {
             return AIGateway.createResponse(
@@ -190,7 +265,28 @@ export class AIGateway {
                 );
             }
 
-            // Step 4: Execute deterministic server-side handler
+            // Step 4: Write Confirmation Check
+            if (actionDef.classification === 'WRITE' && !request.confirmed) {
+                const confMsg = AIGateway.formatConfirmationMessage(actionName, geminiRes.functionCall.args || {});
+                return AIGateway.createResponse(
+                    true,
+                    'ACTION_REQUIRED',
+                    confMsg,
+                    session,
+                    startTime,
+                    'Confirmation requested for action: ' + actionName,
+                    actionName,
+                    undefined,
+                    undefined,
+                    true,
+                    {
+                        actionName: actionName,
+                        args: geminiRes.functionCall.args || {},
+                    }
+                );
+            }
+
+            // Step 5: Execute deterministic server-side handler (READ actions or pre-confirmed WRITE actions)
             try {
                 const handlerResult = AIGateway.dispatchAction(actionName, session, geminiRes.functionCall.args || {});
                 return AIGateway.createResponse(
@@ -227,6 +323,24 @@ export class AIGateway {
             startTime,
             'Informational Inquiry Answered'
         );
+    }
+
+    /**
+     * Formats user-friendly confirmation message for write actions
+     */
+    public static formatConfirmationMessage(actionName: string, args: Record<string, any>): string {
+        switch (actionName) {
+            case 'create_housekeeping_request':
+                return 'I can submit a housekeeping request for your room: "' + (args.notes || 'Service requested') + '" (Priority: ' + (args.priority || 'medium') + '). Would you like me to submit this?';
+            case 'create_maintenance_request':
+                return 'I can report a maintenance issue (' + (args.category || 'general') + '): "' + (args.description || '') + '" for your room. Would you like me to submit this report?';
+            case 'create_room_service_request':
+                return 'I can place an order for ' + (args.quantity || 1) + 'x "' + (args.menu_item_name || 'Item') + '"' + (args.special_instructions ? ' (' + args.special_instructions + ')' : '') + ' to your room folio. Would you like me to submit this order?';
+            case 'create_guest_service_request':
+                return 'I can create a guest service request (' + (args.request_type || 'service') + '): "' + (args.description || '') + '". Would you like me to submit this?';
+            default:
+                return 'Action "' + actionName + '" requires your confirmation before proceeding. Would you like to submit it?';
+        }
     }
 
     /**
@@ -281,7 +395,12 @@ export class AIGateway {
         summary: string,
         action?: string,
         data?: any,
-        errorCategory?: string
+        errorCategory?: string,
+        requiresConfirmation?: boolean,
+        pendingAction?: {
+            actionName: string;
+            args: Record<string, any>;
+        }
     ): AIGatewayResponse {
         const durationMs = Date.now() - startTime;
 
@@ -296,6 +415,8 @@ export class AIGateway {
             data: data,
             durationMs: durationMs,
             errorCategory: errorCategory,
+            requiresConfirmation: requiresConfirmation,
+            pendingAction: pendingAction,
         };
     }
 

@@ -50,6 +50,11 @@ export interface AIGatewayRequest {
     userQuery: string;
     requestCategory?: string;
     clientContext?: Record<string, any>;
+    confirmed?: boolean;
+    pendingAction?: {
+        actionName: string;
+        args: Record<string, any>;
+    };
 }
 
 export interface AIGatewayResponse {
@@ -60,6 +65,11 @@ export interface AIGatewayResponse {
     data?: any;
     durationMs: number;
     errorCategory?: string;
+    requiresConfirmation?: boolean;
+    pendingAction?: {
+        actionName: string;
+        args: Record<string, any>;
+    };
 }
 
 export interface GeminiFunctionCall {
