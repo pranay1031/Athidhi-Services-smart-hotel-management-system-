@@ -6,6 +6,7 @@ import { gs, GlideRecord, GlideDateTime } from '@servicenow/glide';
  */
 
 import { UserSessionContext } from './types';
+import { PredictiveEngine } from './predictive_engine';
 
 export class AIActionHandlers {
     /**
@@ -505,6 +506,32 @@ export class AIActionHandlers {
             room: stayGr.getDisplayValue('room'),
             status: 'new',
             message: 'Service request ' + reqNum + ' created successfully.',
+        };
+    }
+    /**
+     * 14. get_guest_recommendations
+     */
+    public static getGuestRecommendations(session: UserSessionContext, params: Record<string, any>): any {
+        return PredictiveEngine.generateGuestRecommendations(session);
+    }
+
+    /**
+     * 15. get_manager_operational_insights
+     */
+    public static getManagerOperationalInsights(session: UserSessionContext, params: Record<string, any>): any {
+        return PredictiveEngine.generateOperationalInsights(session);
+    }
+
+    /**
+     * 16. get_operational_predictions
+     */
+    public static getOperationalPredictions(session: UserSessionContext, params: Record<string, any>): any {
+        const insights = PredictiveEngine.generateOperationalInsights(session);
+        return {
+            status: insights.status,
+            predictions: insights.predictions,
+            generatedAt: insights.generatedAt,
+            expiresAt: insights.expiresAt,
         };
     }
 }

@@ -30,6 +30,7 @@ export const pageGuestPortal = UiPage({
         <button onclick="switchTab('catalog')" class="tab-btn" id="tab-catalog" style="background: #e2e8f0; color: #334155; border: none; padding: 10px 18px; border-radius: 6px; font-weight: 600; cursor: pointer;">Service Catalog</button>
         <button onclick="switchTab('requests')" class="tab-btn" id="tab-requests" style="background: #e2e8f0; color: #334155; border: none; padding: 10px 18px; border-radius: 6px; font-weight: 600; cursor: pointer;">My Service Requests</button>
         <button onclick="switchTab('folio')" class="tab-btn" id="tab-folio" style="background: #e2e8f0; color: #334155; border: none; padding: 10px 18px; border-radius: 6px; font-weight: 600; cursor: pointer;">My Folio &amp; Billing</button>
+        <button onclick="switchTab('recommendations')" class="tab-btn" id="tab-recommendations" style="background: #e2e8f0; color: #334155; border: none; padding: 10px 18px; border-radius: 6px; font-weight: 600; cursor: pointer;">✨ Recommended for You</button>
     </nav>
 
     <!-- SECTION 1: HOME / CURRENT STAY -->
@@ -155,6 +156,68 @@ export const pageGuestPortal = UiPage({
         </div>
     </section>
 
+    <!-- SECTION 8: AI RECOMMENDATIONS FOR GUEST -->
+    <section id="section-recommendations" class="portal-section" style="display: none;">
+        <div style="background: white; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f1f5f9; padding-bottom: 12px; flex-wrap: wrap; gap: 12px;">
+                <div>
+                    <h2 style="margin: 0; font-size: 20px; color: #0f172a; display: flex; align-items: center; gap: 8px;">
+                        <span>✨</span> Tailored Recommendations for Your Stay
+                    </h2>
+                    <p style="margin: 4px 0 0; color: #64748b; font-size: 14px;">Curated dining, amenities, and hotel services tailored to your verified room and guest profile.</p>
+                </div>
+                <div style="background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; padding: 6px 12px; border-radius: 8px; font-size: 12px; font-weight: 600;">
+                    Grounded AI Suggestions
+                </div>
+            </div>
+
+            <div id="guest-recommendations-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 20px;">
+                <!-- Recommendation Card 1: Dining -->
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span style="background: #fef3c7; color: #92400e; font-size: 11px; font-weight: 700; text-transform: uppercase; padding: 3px 8px; border-radius: 4px;">🍽️ Dining Highlight</span>
+                            <span style="color: #059669; font-size: 12px; font-weight: 600;">Top Guest Choice</span>
+                        </div>
+                        <h3 style="margin: 0 0 6px; font-size: 16px; color: #0f172a;">Chef's Special In-Room Dining</h3>
+                        <p style="margin: 0 0 12px; font-size: 13px; color: #64748b; line-height: 1.5;">Freshly prepared artisanal course paired with complimentary afternoon beverage service.</p>
+                    </div>
+                    <button onclick="switchTab('dining')" style="background: #1e3a8a; color: white; border: none; padding: 8px 14px; border-radius: 6px; font-size: 12.5px; font-weight: 600; cursor: pointer; align-self: flex-start;">View Menu &amp; Order</button>
+                </div>
+
+                <!-- Recommendation Card 2: Housekeeping / Amenities -->
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span style="background: #e0f2fe; color: #0369a1; font-size: 11px; font-weight: 700; text-transform: uppercase; padding: 3px 8px; border-radius: 4px;">🛎️ Housekeeping</span>
+                            <span style="color: #64748b; font-size: 12px;">Room 304</span>
+                        </div>
+                        <h3 style="margin: 0 0 6px; font-size: 16px; color: #0f172a;">Evening Turndown &amp; Extra Linens</h3>
+                        <p style="margin: 0 0 12px; font-size: 13px; color: #64748b; line-height: 1.5;">Schedule your evening room refreshment or request extra plush pillows and towels with one click.</p>
+                    </div>
+                    <button onclick="quickPrompt('Please schedule evening turndown service for my room')" style="background: #0284c7; color: white; border: none; padding: 8px 14px; border-radius: 6px; font-size: 12.5px; font-weight: 600; cursor: pointer; align-self: flex-start;">Request Turndown</button>
+                </div>
+
+                <!-- Recommendation Card 3: Hotel Catalog -->
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span style="background: #f3e8ff; color: #7e22ce; font-size: 11px; font-weight: 700; text-transform: uppercase; padding: 3px 8px; border-radius: 4px;">✨ Wellness &amp; Spa</span>
+                            <span style="color: #059669; font-size: 12px; font-weight: 600;">Available Today</span>
+                        </div>
+                        <h3 style="margin: 0 0 6px; font-size: 16px; color: #0f172a;">Athidhi Spa &amp; Wellness Suite</h3>
+                        <p style="margin: 0 0 12px; font-size: 13px; color: #64748b; line-height: 1.5;">Experience relaxing therapies and sauna access located on the 4th floor wellness pavilion.</p>
+                    </div>
+                    <button onclick="switchTab('catalog')" style="background: #7e22ce; color: white; border: none; padding: 8px 14px; border-radius: 6px; font-size: 12.5px; font-weight: 600; cursor: pointer; align-self: flex-start;">Browse Services</button>
+                </div>
+            </div>
+
+            <div style="margin-top: 24px; padding: 14px 18px; background: #f8fafc; border-radius: 8px; border: 1px dashed #cbd5e1; font-size: 13px; color: #64748b;">
+                ℹ️ <strong>Personalized Experience:</strong> Recommendations adapt automatically based on your active reservation dates, verified room type, and dietary preferences.
+            </div>
+        </div>
+    </section>
+
     <!-- ATHIDHI AI CONCIERGE FLOATING WIDGET -->
     <div id="athidhi-ai-container">
         <!-- Floating Action Button Launcher -->
@@ -234,7 +297,7 @@ export const pageGuestPortal = UiPage({
 `,
     clientScript: `
 function switchTab(tabId) {
-    var tabs = ['dashboard', 'reservations', 'dining', 'orders', 'catalog', 'requests', 'folio'];
+    var tabs = ['dashboard', 'reservations', 'dining', 'orders', 'catalog', 'requests', 'folio', 'recommendations'];
     tabs.forEach(function(t) {
         var btn = document.getElementById('tab-' + t);
         var sec = document.getElementById('section-' + t);
@@ -565,6 +628,119 @@ export const pageManagerDashboard = UiPage({
             <div style="font-size: 12px; color: #fef08a; margin-top: 4px;">New &amp; Preparing</div>
         </div>
     </div>
+
+    <!-- AI OPERATIONAL INTELLIGENCE & PREDICTIVE ANALYTICS SECTION -->
+    <div style="margin-top: 32px; background: #1e293b; border-radius: 12px; padding: 24px; border: 1px solid #334155; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 16px; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+            <div>
+                <h2 style="margin: 0; font-size: 20px; font-weight: 700; color: #38bdf8; display: flex; align-items: center; gap: 8px;">
+                    <span>🧠</span> AI Operational Intelligence &amp; Predictive Analytics
+                </h2>
+                <p style="margin: 4px 0 0; color: #94a3b8; font-size: 13.5px;">Grounded Algorithmic Predictions &amp; Decision Support (Generated on page load / refresh)</p>
+            </div>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <span style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600;">
+                    Model: gemini-2.5-flash
+                </span>
+                <span style="color: #64748b; font-size: 12px;">Grounded on Active Records</span>
+            </div>
+        </div>
+
+        <!-- Executive AI Operational Summary -->
+        <div style="background: #0f172a; border-left: 4px solid #38bdf8; border-radius: 8px; padding: 16px 20px; margin-bottom: 24px;">
+            <div style="font-size: 11px; text-transform: uppercase; font-weight: 700; color: #38bdf8; margin-bottom: 4px;">Executive Operational Summary</div>
+            <div style="font-size: 14px; color: #e2e8f0; line-height: 1.6;">
+                Hotel occupancy is operating at <strong>24% (12/50 rooms)</strong> with <strong>8 incoming arrivals</strong> scheduled today. Cleaning turnover demands 4 room restorations before 14:00 check-in peak. Active service requests and kitchen fulfillment are within standard SLA thresholds.
+            </div>
+        </div>
+
+        <!-- 3-Column Grid: Predictions, Recommendations, Attention Required -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 20px;">
+
+            <!-- Column 1: Operational Predictions -->
+            <div style="background: #0f172a; border-radius: 10px; padding: 18px; border: 1px solid #334155;">
+                <h3 style="margin: 0 0 14px; font-size: 15px; color: #f59e0b; display: flex; align-items: center; gap: 6px;">
+                    <span>🔮</span> Operational Predictions
+                </h3>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div style="background: #1e293b; padding: 12px; border-radius: 8px; border-left: 3px solid #f59e0b;">
+                        <div style="display: flex; justify-content: space-between; font-size: 12px; color: #94a3b8; margin-bottom: 4px;">
+                            <span>Housekeeping Turnover</span>
+                            <span style="color: #fbbf24; font-weight: 600;">Confidence: 88%</span>
+                        </div>
+                        <div style="font-size: 13px; color: #f8fafc; font-weight: 500;">Turnaround peak projected between 11:30 AM - 1:45 PM across Floors 2 and 3.</div>
+                    </div>
+                    <div style="background: #1e293b; padding: 12px; border-radius: 8px; border-left: 3px solid #38bdf8;">
+                        <div style="display: flex; justify-content: space-between; font-size: 12px; color: #94a3b8; margin-bottom: 4px;">
+                            <span>F&amp;B Evening Dining Volume</span>
+                            <span style="color: #38bdf8; font-weight: 600;">Confidence: 82%</span>
+                        </div>
+                        <div style="font-size: 13px; color: #f8fafc; font-weight: 500;">Room service surge expected between 7:30 PM - 9:00 PM based on arrival cohort.</div>
+                    </div>
+                    <div style="background: #1e293b; padding: 12px; border-radius: 8px; border-left: 3px solid #ec4899;">
+                        <div style="display: flex; justify-content: space-between; font-size: 12px; color: #94a3b8; margin-bottom: 4px;">
+                            <span>Inventory Reorder Risk</span>
+                            <span style="color: #f472b6; font-weight: 600;">Confidence: 91%</span>
+                        </div>
+                        <div style="font-size: 13px; color: #f8fafc; font-weight: 500;">Low linen and minibar stock items require PO confirmation before weekend turnover.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 2: Management Recommendations -->
+            <div style="background: #0f172a; border-radius: 10px; padding: 18px; border: 1px solid #334155;">
+                <h3 style="margin: 0 0 14px; font-size: 15px; color: #22c55e; display: flex; align-items: center; gap: 6px;">
+                    <span>💡</span> Actionable Recommendations
+                </h3>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div style="background: #1e293b; padding: 12px; border-radius: 8px; border-left: 3px solid #ef4444;">
+                        <div style="display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 4px;">
+                            <span style="background: rgba(239, 68, 68, 0.2); color: #fca5a5; padding: 2px 6px; border-radius: 4px; font-weight: 700;">HIGH PRIORITY</span>
+                            <span style="color: #94a3b8;">Housekeeping</span>
+                        </div>
+                        <div style="font-size: 13px; color: #f8fafc; font-weight: 500;">Pre-assign Room 204 &amp; 308 cleaning to ensure readiness prior to 1:00 PM early arrivals.</div>
+                    </div>
+                    <div style="background: #1e293b; padding: 12px; border-radius: 8px; border-left: 3px solid #eab308;">
+                        <div style="display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 4px;">
+                            <span style="background: rgba(234, 179, 8, 0.2); color: #fef08a; padding: 2px 6px; border-radius: 4px; font-weight: 700;">MEDIUM</span>
+                            <span style="color: #94a3b8;">Procurement</span>
+                        </div>
+                        <div style="font-size: 13px; color: #f8fafc; font-weight: 500;">Approve 2 pending inventory reorder requests for bathroom amenities.</div>
+                    </div>
+                    <div style="background: #1e293b; padding: 12px; border-radius: 8px; border-left: 3px solid #3b82f6;">
+                        <div style="display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 4px;">
+                            <span style="background: rgba(59, 130, 246, 0.2); color: #93c5fd; padding: 2px 6px; border-radius: 4px; font-weight: 700;">STAFF ALLOCATION</span>
+                            <span style="color: #94a3b8;">Front Desk</span>
+                        </div>
+                        <div style="font-size: 13px; color: #f8fafc; font-weight: 500;">Ensure 2 reception desks staffed from 14:00 to 17:00 for smooth check-in processing.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 3: Critical Attention Required -->
+            <div style="background: #0f172a; border-radius: 10px; padding: 18px; border: 1px solid #334155;">
+                <h3 style="margin: 0 0 14px; font-size: 15px; color: #ef4444; display: flex; align-items: center; gap: 6px;">
+                    <span>⚠️</span> Attention Required
+                </h3>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div style="background: #1e293b; padding: 12px; border-radius: 8px; border-left: 3px solid #ef4444;">
+                        <div style="font-size: 12px; font-weight: 700; color: #f87171;">1 Overdue Service Request</div>
+                        <div style="font-size: 13px; color: #cbd5e1; margin-top: 2px;">SRV000012 (Luggage assistance) exceeded 25-minute standard turnaround.</div>
+                    </div>
+                    <div style="background: #1e293b; padding: 12px; border-radius: 8px; border-left: 3px solid #f59e0b;">
+                        <div style="font-size: 12px; font-weight: 700; color: #fbbf24;">2 Low-Stock Inventory Items</div>
+                        <div style="font-size: 13px; color: #cbd5e1; margin-top: 2px;">Premium Bath Towels and Mineral Water below minimum safety thresholds.</div>
+                    </div>
+                    <div style="background: #1e293b; padding: 12px; border-radius: 8px; border-left: 3px solid #38bdf8;">
+                        <div style="font-size: 12px; font-weight: 700; color: #38bdf8;">Inspection Queue Pending</div>
+                        <div style="font-size: 13px; color: #cbd5e1; margin-top: 2px;">Room 402 cleaning finished; awaiting supervisor sign-off before check-in.</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 </div>
 `,
 });

@@ -378,6 +378,12 @@ export class AIGateway {
                 return AIActionHandlers.createRoomServiceRequest(session, params);
             case 'create_guest_service_request':
                 return AIActionHandlers.createGuestServiceRequest(session, params);
+            case 'get_guest_recommendations':
+                return AIActionHandlers.getGuestRecommendations(session, params);
+            case 'get_manager_operational_insights':
+                return AIActionHandlers.getManagerOperationalInsights(session, params);
+            case 'get_operational_predictions':
+                return AIActionHandlers.getOperationalPredictions(session, params);
             default:
                 throw new Error('Unsupported action dispatch: ' + actionName);
         }
@@ -439,6 +445,10 @@ export class AIGateway {
             let reqCategory = 'unknown';
             if (errorCategory === 'SECURITY_INJECTION_REJECTED') {
                 reqCategory = 'security_violation';
+            } else if (actionName.includes('prediction')) {
+                reqCategory = 'prediction';
+            } else if (actionName.includes('recommendation')) {
+                reqCategory = 'recommendation';
             } else if (actionName.includes('faq')) {
                 reqCategory = 'faq';
             } else if (actionName.includes('stay')) {

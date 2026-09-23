@@ -341,6 +341,42 @@ declare global {
                         table: 'sys_security_acl'
                         id: '4edb313bed594c37961589cc3f349010'
                     }
+                    acl_pred_create: {
+                        table: 'sys_security_acl'
+                        id: 'a73910492cda12480bb18374d9e01002'
+                    }
+                    acl_pred_delete: {
+                        table: 'sys_security_acl'
+                        id: 'a73910492cda12480bb18374d9e01004'
+                    }
+                    acl_pred_read_staff: {
+                        table: 'sys_security_acl'
+                        id: 'a73910492cda12480bb18374d9e01001'
+                    }
+                    acl_pred_write: {
+                        table: 'sys_security_acl'
+                        id: 'a73910492cda12480bb18374d9e01003'
+                    }
+                    acl_rec_create: {
+                        table: 'sys_security_acl'
+                        id: 'a73910492cda12480bb18374d9e02003'
+                    }
+                    acl_rec_delete: {
+                        table: 'sys_security_acl'
+                        id: 'a73910492cda12480bb18374d9e02005'
+                    }
+                    acl_rec_read_guest: {
+                        table: 'sys_security_acl'
+                        id: 'a73910492cda12480bb18374d9e02002'
+                    }
+                    acl_rec_read_staff: {
+                        table: 'sys_security_acl'
+                        id: 'a73910492cda12480bb18374d9e02001'
+                    }
+                    acl_rec_write: {
+                        table: 'sys_security_acl'
+                        id: 'a73910492cda12480bb18374d9e02004'
+                    }
                     acl_res_create_guest: {
                         table: 'sys_security_acl'
                         id: 'da015fcfc3b34163b569042329b63b80'
@@ -924,9 +960,17 @@ declare global {
                         table: 'sys_module'
                         id: 'd78c405177954da58ca8f3472dc21e59'
                     }
+                    src_server_ai_context_builders_ts: {
+                        table: 'sys_module'
+                        id: '55de3a0f03f340669b9f506ff155b8a7'
+                    }
                     src_server_ai_gemini_service_ts: {
                         table: 'sys_module'
                         id: '083dc5ec633741ac93afed50acca5938'
+                    }
+                    src_server_ai_predictive_engine_ts: {
+                        table: 'sys_module'
+                        id: 'd3dde3860bd04dfe96fe7641d55a6176'
                     }
                     src_server_ai_tests_ai_security_tests_ts: {
                         table: 'sys_module'
@@ -1154,11 +1198,29 @@ declare global {
                     },
                     {
                         table: 'sys_documentation'
+                        id: '0250a8fdb29e4e2d9c39333be5b02e01'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'prediction'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
                         id: '0271c1db8c8b48abbbc5254f9b5efc4a'
                         key: {
                             name: 'x_2120492_athidhi_menu'
                             element: 'NULL'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '0275a376bdf84f77a30f3463c321a64c'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'audience'
+                            value: 'guest'
                         }
                     },
                     {
@@ -1288,6 +1350,15 @@ declare global {
                     },
                     {
                         table: 'sys_choice'
+                        id: '046ec206de3c4fc7bb675ead9080709b'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'severity'
+                            value: 'medium'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
                         id: '049b466223f04b72ac5113ae15ec9e11'
                         key: {
                             name: 'x_2120492_athidhi_maintenance_request'
@@ -1367,6 +1438,24 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_food_order'
                             element: 'NULL'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '05cf4dc2cfb84be0bce32b0b1bcc3d07'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'severity'
+                            value: 'low'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '060ef959673e4606a166d7eeafd00f64'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'prediction_number'
                             language: 'en'
                         }
                     },
@@ -1600,6 +1689,19 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_security_acl_role'
+                        id: '0a09df960a984977be968a61b14ae038'
+                        key: {
+                            sys_security_acl: 'a73910492cda12480bb18374d9e02004'
+                            sys_user_role: {
+                                id: '0e2c8b4a8bd0443fb576b6f6b6349fbe'
+                                key: {
+                                    name: 'x_2120492_athidhi.manager'
+                                }
+                            }
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '0a12279a51a44621a8f66f1ef07f451b'
                         key: {
@@ -1752,6 +1854,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: '0bcc97b5da2e41809e20249a9b353e2d'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'priority'
+                            value: 'critical'
+                        }
+                    },
+                    {
                         table: 'sys_ui_action_role'
                         id: '0bcf159661834328b6151d5d2f4f97bd'
                         key: {
@@ -1762,6 +1873,14 @@ declare global {
                                     name: 'x_2120492_athidhi.housekeeping'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_choice_set'
+                        id: '0bdfe0b159c2442d9551ed0400980ef5'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'status'
                         }
                     },
                     {
@@ -1818,6 +1937,15 @@ declare global {
                                     name: 'x_2120492_athidhi.restaurant'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '0cf6e899af464141bae0ea9b706082de'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'reasoning_summary'
+                            language: 'en'
                         }
                     },
                     {
@@ -1917,6 +2045,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '0eb1b6b7864642ab8028575a6b075aba'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'confidence'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: '0eb2d9ef11be4925aae5b1677220c626'
                         key: {
@@ -1983,6 +2119,14 @@ declare global {
                                     name: 'x_2120492_athidhi.admin'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '0feb75be1bca4e05ac111657169e957c'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'expires_at'
                         }
                     },
                     {
@@ -2087,6 +2231,14 @@ declare global {
                     },
                     {
                         table: 'sys_dictionary'
+                        id: '147a7ce514394ec5bef16d3c5f7246fd'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'rationale'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
                         id: '14b92bd58f404832bab058a2fd2f8c54'
                         key: {
                             name: 'x_2120492_athidhi_work_task'
@@ -2160,6 +2312,14 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_food_order'
                             element: 'order_type'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '16606c801f114767931630385a2cc745'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'NULL'
                         }
                     },
                     {
@@ -2400,6 +2560,15 @@ declare global {
                                     name: 'x_2120492_athidhi.housekeeping'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '1a13c065e47e4f9ab0e461776feebcbd'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'target_table'
+                            language: 'en'
                         }
                     },
                     {
@@ -2962,6 +3131,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: '249c9d0c360b4230bb398c23fd94e8b9'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'target_record'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_choice_set'
                         id: '249d50246a11406aad37d852af6c71e5'
                         key: {
@@ -2992,6 +3170,15 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_work_task'
                             element: 'description'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '251be5fd765a4faebe36ccc53405ea63'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'target_record'
                             language: 'en'
                         }
                     },
@@ -3421,6 +3608,19 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_security_acl_role'
+                        id: '2d8d406cb2c64e8797ff4145cec0ff45'
+                        key: {
+                            sys_security_acl: 'a73910492cda12480bb18374d9e01001'
+                            sys_user_role: {
+                                id: '0e2c8b4a8bd0443fb576b6f6b6349fbe'
+                                key: {
+                                    name: 'x_2120492_athidhi.manager'
+                                }
+                            }
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: '2da4255cc9b240ae8628e37021329e7a'
                         key: {
@@ -3434,6 +3634,15 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_guest'
                             element: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '2e6941540d0c4589b397848741ad0354'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'recommendation_type'
+                            value: 'room_service'
                         }
                     },
                     {
@@ -3471,6 +3680,14 @@ declare global {
                                     name: 'x_2120492_athidhi.admin'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_choice_set'
+                        id: '3082b534e1134723b35f3973711a7ec5'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'severity'
                         }
                     },
                     {
@@ -3657,6 +3874,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: '3480d69251bf4dbfbf94c195409c4ca1'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'prediction_type'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_ui_action_role'
                         id: '34817a5538a643c49fa4fa55242f7006'
                         key: {
@@ -3785,6 +4011,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '3608a514dcb44211b8c61be942e6e9ec'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'recommendation_type'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '361bf090042445ce841e0033b63eca7b'
                         key: {
@@ -3846,6 +4080,15 @@ declare global {
                                     name: 'x_2120492_athidhi.guest'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '37974bbcc40f42ff98bed8f65c9bcb5e'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'recommendation_type'
+                            value: 'staff_allocation'
                         }
                     },
                     {
@@ -3967,6 +4210,19 @@ declare global {
                             name: 'x_2120492_athidhi_menu_item'
                             element: 'dietary_type'
                             value: 'jain'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: '3aa49682d49840fab5b6d5cffe330fde'
+                        key: {
+                            sys_security_acl: 'a73910492cda12480bb18374d9e02005'
+                            sys_user_role: {
+                                id: 'b45ac46436c14974b223c8bff451f7e8'
+                                key: {
+                                    name: 'x_2120492_athidhi.admin'
+                                }
+                            }
                         }
                     },
                     {
@@ -4116,6 +4372,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '3c9743284aa344b8b6b787a7a2c4476d'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'expires_at'
+                        }
+                    },
+                    {
                         table: 'sys_choice'
                         id: '3c9e7ebfdbb144988803ccc3e2e8f309'
                         key: {
@@ -4206,6 +4470,15 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_room_amenity'
                             element: 'active'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '3e4b9e58dea84450a76839031ebcdf0d'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'recommendation_type'
                             language: 'en'
                         }
                     },
@@ -4323,6 +4596,15 @@ declare global {
                             name: 'x_2120492_athidhi_work_task'
                             element: 'priority'
                             value: 'high'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '3f60e88fec114380b6b572ff435b129b'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'status'
+                            value: 'fulfilled'
                         }
                     },
                     {
@@ -4560,6 +4842,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: '4478ca6d237c426c81fb277d614ed785'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'audience'
+                            value: 'staff'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: '448ac640e4c642b29116d069e08c3f20'
                         key: {
@@ -4591,6 +4882,15 @@ declare global {
                                     name: 'x_2120492_athidhi.receptionist'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '45313b3f918d4b5ba2db34b9f87a44d8'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'severity'
+                            language: 'en'
                         }
                     },
                     {
@@ -4859,6 +5159,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: '48d2be3c23514155865173e7023ba315'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'confidence'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: '48d6455afe3841ae9b29910edf081732'
                         key: {
@@ -5022,6 +5331,19 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_security_acl_role'
+                        id: '4c520148f5004ebebcb02501b4635f5b'
+                        key: {
+                            sys_security_acl: 'a73910492cda12480bb18374d9e01003'
+                            sys_user_role: {
+                                id: '0e2c8b4a8bd0443fb576b6f6b6349fbe'
+                                key: {
+                                    name: 'x_2120492_athidhi.manager'
+                                }
+                            }
+                        }
+                    },
+                    {
                         table: 'sys_choice'
                         id: '4c6a0088ba344f8dbf3e2447f393b051'
                         key: {
@@ -5164,6 +5486,14 @@ declare global {
                     },
                     {
                         table: 'sys_dictionary'
+                        id: '4d9e087c27ff4959b352bc7143d68e23'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'prediction'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
                         id: '4da49c2a0e7c4f229a6bd9807319dbf3'
                         key: {
                             name: 'x_2120492_athidhi_menu'
@@ -5263,6 +5593,14 @@ declare global {
                                     name: 'x_2120492_athidhi.admin'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '4f5e220f036c4709b87b85f0b1f46541'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'generated_at'
                         }
                     },
                     {
@@ -5490,6 +5828,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '51f6975ad2a14e6fa13028cb7d01aff6'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'audience'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '525cfcbe7e0644d382ab5338eaf7a5d9'
                         key: {
@@ -5678,11 +6024,29 @@ declare global {
                     },
                     {
                         table: 'sys_choice'
+                        id: '56aff80377a14d57afa4e3a00a68543e'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'status'
+                            value: 'draft'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
                         id: '56d0599b29804d7eb90a3c834e418c32'
                         key: {
                             name: 'x_2120492_athidhi_department'
                             element: 'name'
                             value: 'restaurant'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '57396ea30757444881da328839ce385b'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'guest'
+                            language: 'en'
                         }
                     },
                     {
@@ -5775,6 +6139,28 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: '5953ae87c9a04629920b592d2b0aa7b0'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'prediction_type'
+                            value: 'inventory_reorder_risk'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: '596589a2136b44dbb5c146bc277a5d70'
+                        key: {
+                            sys_security_acl: 'a73910492cda12480bb18374d9e02003'
+                            sys_user_role: {
+                                id: '0e2c8b4a8bd0443fb576b6f6b6349fbe'
+                                key: {
+                                    name: 'x_2120492_athidhi.manager'
+                                }
+                            }
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '59a1b44760534184a88fa4f446b9c2c6'
                         key: {
@@ -5845,6 +6231,15 @@ declare global {
                             name: 'x_2120492_athidhi_inventory_reorder'
                             element: 'status'
                             value: 'ordered'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '5a502605a953442781ee3b8612d4c8fc'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'stay'
+                            language: 'en'
                         }
                     },
                     {
@@ -6113,6 +6508,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: '5f37a6ebde414236ae830e1ae47c19dd'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'status'
+                            value: 'active'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: '5f3e0999c6ff42e5a9fd9e247b2961ad'
                         key: {
@@ -6160,6 +6564,24 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: '603d4d98a4d744d08c1312dee159d41a'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'recommendation_type'
+                            value: 'amenity'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '606c0cc00b7045219e231389d9e46668'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'audience'
+                            value: 'all'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: '60b7520c5809477ea1bc1a42e3f1b69b'
                         key: {
@@ -6174,11 +6596,28 @@ declare global {
                     },
                     {
                         table: 'sys_documentation'
+                        id: '60db9c606de044c08130224b88ff8ba0'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'recommendation'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
                         id: '613ab96996614b239974265d7451ef45'
                         key: {
                             name: 'x_2120492_athidhi_reservation'
                             element: 'adults'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_number'
+                        id: '613d93de3dd945e4b481e9850c0364ee'
+                        key: {
+                            category: 'x_2120492_athidhi_ai_recommendation'
+                            prefix: 'REC'
                         }
                     },
                     {
@@ -6223,6 +6662,13 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_service_request_item'
                             element: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_db_object'
+                        id: '62971c7bd12e4606842fdab4ca03f397'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
                         }
                     },
                     {
@@ -6359,6 +6805,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '652bb048a3194299aa81c21b0a5b4aff'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'prediction_number'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: '654a310e3104458bac2c7a4ca000d5bc'
                         key: {
@@ -6429,6 +6883,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: '664a7d6ae3154bb5b8a6a16db2d0627e'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'audience'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_ui_page'
                         id: '664cc400babe440598afa8a1ae96bedc'
                         key: {
@@ -6479,6 +6942,14 @@ declare global {
                             name: 'x_2120492_athidhi_ai_interaction_log'
                             element: 'action_result'
                             value: 'ACTION_REQUIRED'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '67bf37705987473b9ba29b3a4d6469e3'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'status'
                         }
                     },
                     {
@@ -6655,6 +7126,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: '69e60e384a0a4060bb0c49842eeba14f'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'generated_at'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: '6a0023b9e6af4daaa04d5ea5b9b1726d'
                         key: {
@@ -6676,6 +7156,20 @@ declare global {
                                 id: 'b45ac46436c14974b223c8bff451f7e8'
                                 key: {
                                     name: 'x_2120492_athidhi.admin'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: '6a2436bbbb5641588d6971ce3b0ac1d3'
+                        deleted: true
+                        key: {
+                            sys_security_acl: 'a73910492cda12480bb18374d9e02003'
+                            sys_user_role: {
+                                id: '7a58b2b3dd1e4586ad7b6fb331fb8788'
+                                key: {
+                                    name: 'x_2120492_athidhi.guest'
                                 }
                             }
                         }
@@ -6815,6 +7309,15 @@ declare global {
                                     name: 'x_2120492_athidhi.admin'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '6ca73db99a7b4176b2794851a57ede35'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'status'
+                            language: 'en'
                         }
                     },
                     {
@@ -6980,6 +7483,15 @@ declare global {
                     },
                     {
                         table: 'sys_documentation'
+                        id: '700d3ddc453a4928b508ad9731448a8b'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'NULL'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
                         id: '70231e66d24645258502fa49c0535635'
                         key: {
                             name: 'x_2120492_athidhi_guest'
@@ -7053,6 +7565,14 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_service_request'
                             element: 'guest'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '718e75a520e74d0e9de1787f728ce3c2'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'recommendation'
                         }
                     },
                     {
@@ -7415,6 +7935,19 @@ declare global {
                     },
                     {
                         table: 'sys_security_acl_role'
+                        id: '76f7f369b9b44338a1cc54b3574c8f42'
+                        key: {
+                            sys_security_acl: 'a73910492cda12480bb18374d9e01002'
+                            sys_user_role: {
+                                id: 'b45ac46436c14974b223c8bff451f7e8'
+                                key: {
+                                    name: 'x_2120492_athidhi.admin'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
                         id: '7712d166b9dd45368f29d661049a5a0e'
                         key: {
                             sys_security_acl: '29522196288346fa8daed8d46faddaa6'
@@ -7673,6 +8206,14 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_incident'
                             element: 'description'
+                        }
+                    },
+                    {
+                        table: 'sys_number'
+                        id: '7b010541c918491c94bfd8e7668886e8'
+                        key: {
+                            category: 'x_2120492_athidhi_ai_prediction'
+                            prefix: 'PRD'
                         }
                     },
                     {
@@ -7976,6 +8517,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '7f59b0407e014a6989793a9602a9e0d6'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'prediction_type'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '7f5a38d8ecee4a8890475eab2b8a98fe'
                         key: {
@@ -8027,6 +8576,19 @@ declare global {
                     },
                     {
                         table: 'sys_security_acl_role'
+                        id: '804d4039add44244b9cc3c032b1e25f4'
+                        key: {
+                            sys_security_acl: 'a73910492cda12480bb18374d9e02001'
+                            sys_user_role: {
+                                id: 'b45ac46436c14974b223c8bff451f7e8'
+                                key: {
+                                    name: 'x_2120492_athidhi.admin'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
                         id: '80a11af179674307a28848433a39e020'
                         key: {
                             sys_security_acl: '36ccf90d87a844ef90b2966b93f1da4a'
@@ -8074,6 +8636,15 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_incident'
                             element: 'resolution_notes'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '81dd0e11c5264f9290aeb25cb4046e32'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'recommendation_type'
+                            value: 'housekeeping'
                         }
                     },
                     {
@@ -8147,6 +8718,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: '8354ab04b15c4673bf5179b072936719'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'priority'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_choice'
                         id: '8360e81a5c3a48b2b3603f1202307d6d'
                         key: {
@@ -8161,6 +8741,15 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_food_order'
                             element: 'status'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '83d8277ad6c444a1a97db891c3892e10'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'status'
+                            value: 'dismissed'
                         }
                     },
                     {
@@ -8235,6 +8824,19 @@ declare global {
                             name: 'x_2120492_athidhi_service_catalog_item'
                             element: 'default_priority'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: '852bd153f4c948d2927941b873dc6935'
+                        key: {
+                            sys_security_acl: 'a73910492cda12480bb18374d9e02003'
+                            sys_user_role: {
+                                id: 'b45ac46436c14974b223c8bff451f7e8'
+                                key: {
+                                    name: 'x_2120492_athidhi.admin'
+                                }
+                            }
                         }
                     },
                     {
@@ -8329,6 +8931,13 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_db_object'
+                        id: '867dea959a5540acbb9748949d2c8f7a'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '868b110ae0ba4f9e99a9346cabb85254'
                         key: {
@@ -8359,6 +8968,15 @@ declare global {
                         id: '87603fb7582347dc866123f989273ce1'
                         key: {
                             name: 'x_2120492_athidhi_room'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '87ccc5ae9a764b59b9573a0e7a8587f6'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'status'
+                            value: 'dismissed'
                         }
                     },
                     {
@@ -8517,6 +9135,15 @@ declare global {
                             name: 'x_2120492_athidhi_service_request'
                             element: 'completed_at'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '8a6bfdb14efd4c40b2ea3d060cca64b5'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'status'
+                            value: 'expired'
                         }
                     },
                     {
@@ -8708,6 +9335,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '8db22ac500f54630b9ea1cf9192d8bca'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'NULL'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: '8ddadac9bd1445b182f59a2897eece5c'
                         key: {
@@ -8833,6 +9468,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice_set'
+                        id: '8fe07b46c0f143ab841cf3911f763d53'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'audience'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: '90b481ef6de44302bdad80c025c15b40'
                         key: {
@@ -8859,6 +9502,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice_set'
+                        id: '90f67443c94f4933933fc0302bb3d439'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'recommendation_type'
+                        }
+                    },
+                    {
                         table: 'sys_choice'
                         id: '912b60a3067146789625dbb08a9f75d1'
                         key: {
@@ -8874,6 +9525,14 @@ declare global {
                             name: 'x_2120492_athidhi_housekeeping_task'
                             element: 'inspection_status'
                             value: 'failed'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '927aef82db2743ddb33c08c3b9acfdf4'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'recommendation_number'
                         }
                     },
                     {
@@ -9097,6 +9756,13 @@ declare global {
                         }
                     },
                     {
+                        table: 'ua_table_licensing_config'
+                        id: '96130758fced436c86c9e78377c53bf9'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '969a677ce4c34d1ea0161f301ff955f4'
                         key: {
@@ -9143,6 +9809,14 @@ declare global {
                                     name: 'x_2120492_athidhi.maintenance'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '97bd1c9fab71466a8161c3a093a9a61f'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'priority'
                         }
                     },
                     {
@@ -9246,6 +9920,19 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_security_acl_role'
+                        id: '99e4171650954f20bb6cda514cb23f8d'
+                        key: {
+                            sys_security_acl: 'a73910492cda12480bb18374d9e02002'
+                            sys_user_role: {
+                                id: '7a58b2b3dd1e4586ad7b6fb331fb8788'
+                                key: {
+                                    name: 'x_2120492_athidhi.guest'
+                                }
+                            }
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: '99f553763d954f2da3414e546e7bb173'
                         key: {
@@ -9272,6 +9959,15 @@ declare global {
                                     name: 'x_2120492_athidhi.receptionist'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '9a84a440323e417faaa210228f4e105f'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'status'
+                            value: 'expired'
                         }
                     },
                     {
@@ -9413,6 +10109,19 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_security_acl_role'
+                        id: '9c8f57b259264f5988167b111f3e483b'
+                        key: {
+                            sys_security_acl: 'a73910492cda12480bb18374d9e01002'
+                            sys_user_role: {
+                                id: '0e2c8b4a8bd0443fb576b6f6b6349fbe'
+                                key: {
+                                    name: 'x_2120492_athidhi.manager'
+                                }
+                            }
+                        }
+                    },
+                    {
                         table: 'sys_choice_set'
                         id: '9cae4c81039441cbab49bb71c9f16220'
                         key: {
@@ -9449,6 +10158,15 @@ declare global {
                             name: 'x_2120492_athidhi_housekeeping_task'
                             element: 'NULL'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '9dbbb99b88d84c2190027bbd2cfafe9e'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'status'
+                            value: 'active'
                         }
                     },
                     {
@@ -9635,6 +10353,19 @@ declare global {
                     },
                     {
                         table: 'sys_security_acl_role'
+                        id: 'a0abac165f984a2ba5ac62e001352dae'
+                        key: {
+                            sys_security_acl: 'a73910492cda12480bb18374d9e01004'
+                            sys_user_role: {
+                                id: 'b45ac46436c14974b223c8bff451f7e8'
+                                key: {
+                                    name: 'x_2120492_athidhi.admin'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
                         id: 'a0ca86ea6af94e74ba85e94f92127c8a'
                         key: {
                             sys_security_acl: 'a306555f0c0c4591a76f21a00a6f6304'
@@ -9810,6 +10541,24 @@ declare global {
                     },
                     {
                         table: 'sys_choice'
+                        id: 'a4b05828feb648b889647c3e4955e0cd'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'severity'
+                            value: 'high'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'a532b7817a944d519779ced5d14dab75'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'priority'
+                            value: 'medium'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
                         id: 'a53eeca3583d453a89a75206965131b6'
                         key: {
                             name: 'x_2120492_athidhi_incident'
@@ -9824,6 +10573,15 @@ declare global {
                             name: 'x_2120492_athidhi_food_order'
                             element: 'order_type'
                             value: 'room_service'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'a5711c5ea2c24065b6715151a5e9d6d2'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'target_table'
+                            language: 'en'
                         }
                     },
                     {
@@ -9973,6 +10731,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: 'a88b8f83dee84545bab14ecaff5559f0'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'guest'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: 'a89340f4ade647b78a4713056778a48e'
                         key: {
@@ -10046,6 +10812,15 @@ declare global {
                         id: 'a8eb32753afc407296552b4420426e44'
                         key: {
                             name: 'x_2120492_athidhi_staff_profile'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'a8fbe1ca578a448899d0c3264dde0f87'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'status'
+                            language: 'en'
                         }
                     },
                     {
@@ -10184,6 +10959,23 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice_set'
+                        id: 'ac01356358124faeaf7c0c086b1e5a84'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'priority'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'ac13b4a087934193ac4f0bf992bd2830'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'priority'
+                            value: 'high'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: 'ac40900d97a74fb8b05b781317e724a8'
                         key: {
@@ -10245,6 +11037,15 @@ declare global {
                     },
                     {
                         table: 'sys_choice'
+                        id: 'acf954aaf8094747bbb5bf1ee6e919ba'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'audience'
+                            value: 'manager'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
                         id: 'ad3950a1c3744c23ae0ea19ed4cc5d28'
                         key: {
                             name: 'x_2120492_athidhi_housekeeping_task'
@@ -10302,6 +11103,15 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_room_type'
                             element: 'bed_type'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'ae65226592aa40eba982c43796876bf1'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'prediction_type'
+                            value: 'service_request_volume'
                         }
                     },
                     {
@@ -10452,6 +11262,14 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_food_order_item'
                             element: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'b1139596fc524c5080527f11d9225306'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'reasoning_summary'
                         }
                     },
                     {
@@ -10618,6 +11436,14 @@ declare global {
                             name: 'x_2120492_athidhi_menu_item'
                             element: 'preparation_time'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'b3458ab511a640a7aaf0fd2632c0b345'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'status'
                         }
                     },
                     {
@@ -10881,6 +11707,19 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_security_acl_role'
+                        id: 'b6fa2fa7e3d84abb9194589b8dddad3c'
+                        key: {
+                            sys_security_acl: 'a73910492cda12480bb18374d9e02004'
+                            sys_user_role: {
+                                id: 'b45ac46436c14974b223c8bff451f7e8'
+                                key: {
+                                    name: 'x_2120492_athidhi.admin'
+                                }
+                            }
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: 'b724b5ede2f74a129390c3a89bc344ae'
                         key: {
@@ -10895,6 +11734,14 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_housekeeping_task'
                             element: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_choice_set'
+                        id: 'b79246e458854784854225cccf2f9948'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'prediction_type'
                         }
                     },
                     {
@@ -10937,6 +11784,15 @@ declare global {
                                     name: 'x_2120492_athidhi.admin'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'b8a889d417f447f4b2da5d3955138d89'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'status'
+                            value: 'applied'
                         }
                     },
                     {
@@ -11101,6 +11957,15 @@ declare global {
                             name: 'x_2120492_athidhi_reservation'
                             element: 'booking_source'
                             value: 'phone'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'baaf03f191084d11b58258b3e3dd9144'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'prediction_type'
+                            value: 'restaurant_demand'
                         }
                     },
                     {
@@ -11282,6 +12147,28 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: 'bd4d2c5edf4e4249a171a9214ac0955c'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'priority'
+                            value: 'low'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: 'bd956ea2b1e3465a8bc99af9ebc6194d'
+                        key: {
+                            sys_security_acl: 'a73910492cda12480bb18374d9e01003'
+                            sys_user_role: {
+                                id: 'b45ac46436c14974b223c8bff451f7e8'
+                                key: {
+                                    name: 'x_2120492_athidhi.admin'
+                                }
+                            }
+                        }
+                    },
+                    {
                         table: 'sys_user_role'
                         id: 'bd9b587c1f9047609d32f4eea97e73bb'
                         key: {
@@ -11333,6 +12220,24 @@ declare global {
                             name: 'x_2120492_athidhi_amenity'
                             element: 'category'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'be5acaf2d84042179186ce5fccb16f40'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'recommendation_type'
+                            value: 'other'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'be61b14b4ddc43efa5dbf66ef88e09aa'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'prediction_type'
+                            value: 'housekeeping_workload'
                         }
                     },
                     {
@@ -11472,6 +12377,14 @@ declare global {
                             name: 'x_2120492_athidhi_stay'
                             element: 'children'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'c08e132b8dc3486e801c9942027b4d99'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'target_table'
                         }
                     },
                     {
@@ -11662,6 +12575,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: 'c4c6c95e3d41427aa43ae286fd1ac277'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'recommendation_type'
+                            value: 'inventory_reorder'
+                        }
+                    },
+                    {
                         table: 'sys_ui_action_role'
                         id: 'c4f336bac9db4207b26a548847866d55'
                         key: {
@@ -11818,6 +12740,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: 'c808d037232b4a6cb7af7c904848f125'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'expires_at'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: 'c885ef4042a5457c83b93b311af5be3b'
                         key: {
@@ -11855,6 +12786,19 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_inventory_reorder'
                             element: 'notes'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: 'cae7ac54b5804fa5bb74c150fae4d2b7'
+                        key: {
+                            sys_security_acl: 'a73910492cda12480bb18374d9e02001'
+                            sys_user_role: {
+                                id: '0e2c8b4a8bd0443fb576b6f6b6349fbe'
+                                key: {
+                                    name: 'x_2120492_athidhi.manager'
+                                }
+                            }
                         }
                     },
                     {
@@ -11925,6 +12869,14 @@ declare global {
                                     name: 'x_2120492_athidhi.housekeeping'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'ccb780de32b44850b5a7718205526ef6'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'target_record'
                         }
                     },
                     {
@@ -12063,6 +13015,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: 'cfb3ed01afc642f7831f1cac90c17aeb'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'generated_at'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: 'cfc38b512c51477f9ed70e907131d063'
                         key: {
@@ -12142,6 +13102,15 @@ declare global {
                             name: 'x_2120492_athidhi_work_task'
                             element: 'priority'
                             value: 'critical'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'd0d07d18212b45eeb3a3009c6d88665d'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'recommendation_type'
+                            value: 'maintenance'
                         }
                     },
                     {
@@ -12272,6 +13241,15 @@ declare global {
                                     name: 'x_2120492_athidhi.manager'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'd344b87382b842e4b624a9a3c3ea8ad3'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'NULL'
+                            language: 'en'
                         }
                     },
                     {
@@ -12413,12 +13391,28 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: 'd50ddadbbb924389b0b0b04cda21b46f'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'target_record'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: 'd516ced6141f4d3e8bc61ed460cbd2b6'
                         key: {
                             name: 'x_2120492_athidhi_staff_profile'
                             element: 'notes'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'd532fb852073476ea9b40bddb80413e3'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'stay'
                         }
                     },
                     {
@@ -12450,6 +13444,15 @@ declare global {
                             name: 'x_2120492_athidhi_food_order'
                             element: 'status'
                             value: 'out_for_delivery'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'd61b704d0315467593e5425b5124c1e9'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'recommendation_type'
+                            value: 'dining'
                         }
                     },
                     {
@@ -12527,6 +13530,15 @@ declare global {
                                     name: 'x_2120492_athidhi.manager'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'd79f7bd83d27470a9d96d91d745dadee'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'generated_at'
+                            language: 'en'
                         }
                     },
                     {
@@ -12729,6 +13741,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: 'db95dcc6b0be456c86362d47d4a63640'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'recommendation_number'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: 'dba0bf359dfc4d129af5d8060c62118f'
                         key: {
@@ -12820,6 +13841,21 @@ declare global {
                             name: 'x_2120492_athidhi_restaurant'
                             element: 'description'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_choice_set'
+                        id: 'dcbd14eecdf14c4290f3d4296e461140'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'status'
+                        }
+                    },
+                    {
+                        table: 'ua_table_licensing_config'
+                        id: 'dd1bc75ddb1e4d2ab69edc4a3dcc92c7'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
                         }
                     },
                     {
@@ -13003,6 +14039,14 @@ declare global {
                                     name: 'x_2120492_athidhi.guest'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'dfd6635d17a54ed29b3e8bb8e6ef53f8'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'severity'
                         }
                     },
                     {
@@ -13296,6 +14340,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: 'e51268289efb423c9006d1f8f1b99ae5'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'severity'
+                            value: 'critical'
+                        }
+                    },
+                    {
                         table: 'sys_choice_set'
                         id: 'e529e0415422442fb6268a60a1c98159'
                         key: {
@@ -13454,6 +14507,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: 'e7a59be087fe48f199c8e9715c2fcfed'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'target_table'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: 'e7e67494d92740f8bb76800481e56127'
                         key: {
@@ -13494,6 +14555,15 @@ declare global {
                                     name: 'x_2120492_athidhi.manager'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'e8f02445f901466e929590a07ba27eac'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'prediction_type'
+                            value: 'maintenance_workload'
                         }
                     },
                     {
@@ -13567,6 +14637,28 @@ declare global {
                                     name: 'x_2120492_athidhi.admin'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: 'eb2d125ac20e4878b843d349eb582d4d'
+                        key: {
+                            sys_security_acl: 'a73910492cda12480bb18374d9e01001'
+                            sys_user_role: {
+                                id: 'b45ac46436c14974b223c8bff451f7e8'
+                                key: {
+                                    name: 'x_2120492_athidhi.admin'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'eb3d7aab9f834dc1b12b302b2a79f748'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'recommendation_type'
+                            value: 'service_catalog'
                         }
                     },
                     {
@@ -13931,6 +15023,15 @@ declare global {
                                     name: 'x_2120492_athidhi.housekeeping'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'f19ab2ea39f64b688d0f646b0461d7ea'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'rationale'
+                            language: 'en'
                         }
                     },
                     {
@@ -14337,6 +15438,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: 'fa840ac8533b4358b264bdf26019bf29'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_recommendation'
+                            element: 'expires_at'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_db_object'
                         id: 'fa87b351ccb9460e8fcba82cc8a35d02'
                         key: {
@@ -14363,6 +15473,15 @@ declare global {
                                     name: 'x_2120492_athidhi.guest'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'fabaa296e3e046f992a6cbca42f6b39e'
+                        key: {
+                            name: 'x_2120492_athidhi_ai_prediction'
+                            element: 'prediction_type'
+                            value: 'other'
                         }
                     },
                     {

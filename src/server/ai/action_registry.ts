@@ -298,6 +298,66 @@ export const AI_ACTION_REGISTRY: Record<string, AIActionDefinition> = {
         targetTable: 'x_2120492_athidhi_service_request',
         auditRequired: true,
     },
+    // ---------------------------------------------------------------------
+    // PHASE 5D ACTIONS: PREDICTIONS & RECOMMENDATIONS (14 to 16)
+    // ---------------------------------------------------------------------
+    get_guest_recommendations: {
+        name: 'get_guest_recommendations',
+        description: "Generates personalized, grounded guest recommendations (dining, room service, amenities, catalog) for the authenticated guest.",
+        classification: 'READ',
+        allowedRoles: ['guest', 'receptionist', 'manager', 'admin'],
+        requiredParams: [],
+        optionalParams: ['category'],
+        parameterDefinitions: [
+            {
+                name: 'category',
+                type: 'string',
+                required: false,
+                description: 'Filter recommendation category (dining, amenity, service)',
+                allowedValues: ['dining', 'room_service', 'amenity', 'service_catalog', 'all'],
+            },
+        ],
+        targetTable: 'x_2120492_athidhi_ai_recommendation',
+        auditRequired: true,
+    },
+    get_manager_operational_insights: {
+        name: 'get_manager_operational_insights',
+        description: "Generates grounded operational intelligence, workload predictions, and management recommendations from current hotel operational metrics.",
+        classification: 'READ',
+        allowedRoles: ['manager', 'admin'],
+        requiredParams: [],
+        optionalParams: ['domain'],
+        parameterDefinitions: [
+            {
+                name: 'domain',
+                type: 'string',
+                required: false,
+                description: 'Target operational domain',
+                allowedValues: ['housekeeping', 'maintenance', 'fnb', 'inventory', 'all'],
+            },
+        ],
+        targetTable: 'x_2120492_athidhi_ai_prediction',
+        auditRequired: true,
+    },
+    get_operational_predictions: {
+        name: 'get_operational_predictions',
+        description: "Retrieves or generates structured operational predictions for hotel staffing, workload, and reorder risk.",
+        classification: 'READ',
+        allowedRoles: ['manager', 'admin'],
+        requiredParams: [],
+        optionalParams: ['prediction_type'],
+        parameterDefinitions: [
+            {
+                name: 'prediction_type',
+                type: 'string',
+                required: false,
+                description: 'Filter specific prediction type',
+                allowedValues: ['housekeeping_workload', 'service_request_volume', 'maintenance_workload', 'inventory_reorder_risk', 'restaurant_demand', 'other'],
+            },
+        ],
+        targetTable: 'x_2120492_athidhi_ai_prediction',
+        auditRequired: true,
+    },
 };
 
 /**

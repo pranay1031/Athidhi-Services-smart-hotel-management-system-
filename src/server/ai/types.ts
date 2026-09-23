@@ -1,5 +1,5 @@
 /**
- * Phase 5B — Athidhi Services AI Type Definitions
+ * Phase 5B / 5C / 5D — Athidhi Services AI Type Definitions
  */
 
 export type AIResponseCategory =
@@ -85,4 +85,129 @@ export interface GeminiServiceResponse {
     isTimeout: boolean;
     isRateLimited: boolean;
     error?: string;
+}
+
+// -------------------------------------------------------------
+// Phase 5D: Predictions & Recommendations Interfaces
+// -------------------------------------------------------------
+
+export type PredictionType =
+    | 'housekeeping_workload'
+    | 'service_request_volume'
+    | 'maintenance_workload'
+    | 'inventory_reorder_risk'
+    | 'restaurant_demand'
+    | 'other';
+
+export type RecommendationType =
+    | 'dining'
+    | 'room_service'
+    | 'amenity'
+    | 'service_catalog'
+    | 'housekeeping'
+    | 'maintenance'
+    | 'inventory_reorder'
+    | 'staff_allocation'
+    | 'other';
+
+export type PriorityLevel = 'low' | 'medium' | 'high' | 'critical';
+
+export interface AIPredictionItem {
+    predictionType: PredictionType;
+    prediction: string;
+    confidence: number;
+    severity: PriorityLevel;
+    reasoningSummary: string;
+    targetTable?: string;
+    targetRecord?: string;
+}
+
+export interface AIRecommendationItem {
+    audience: 'guest' | 'staff' | 'manager' | 'all';
+    recommendationType: RecommendationType;
+    recommendation: string;
+    rationale: string;
+    priority: PriorityLevel;
+    targetTable?: string;
+    targetRecord?: string;
+}
+
+export interface OperationalContextSnapshot {
+    timestamp: string;
+    occupancy: {
+        totalRooms: number;
+        availableRooms: number;
+        occupiedRooms: number;
+        occupancyRatePercent: number;
+        todaysArrivals: number;
+        todaysDepartures: number;
+    };
+    housekeeping: {
+        totalOccupied: number;
+        dirtyRooms: number;
+        cleaningInProgress: number;
+        pendingInspections: number;
+        overdueTasks: number;
+        totalOpenTasks: number;
+    };
+    serviceRequests: {
+        newRequests: number;
+        inProgressRequests: number;
+        overdueRequests: number;
+        totalOpen: number;
+        byType: Record<string, number>;
+        byPriority: Record<string, number>;
+    };
+    maintenance: {
+        openRequests: number;
+        urgentOrCritical: number;
+        byCategory: Record<string, number>;
+        affectedRooms: string[];
+    };
+    foodAndBeverage: {
+        pendingOrders: number;
+        ordersToday: number;
+        activeMenuItemsCount: number;
+    };
+    inventory: {
+        totalTrackedItems: number;
+        lowStockItemsCount: number;
+        lowStockItemNames: string[];
+        pendingReordersCount: number;
+    };
+}
+
+export interface GuestContextSnapshot {
+    guestSysId: string;
+    guestName: string;
+    guestEmail: string;
+    stay: {
+        stayNumber: string;
+        roomNumber: string;
+        checkIn: string;
+        expectedCheckOut: string;
+    } | null;
+    preferences: Array<{ type: string; value: string }>;
+    recentOrders: Array<{ orderNumber: string; status: string; items: string[] }>;
+    recentRequests: Array<{ requestNumber: string; type: string; status: string }>;
+    availableMenus: Array<{ name: string; category: string; price: number; dietary: string }>;
+    serviceCatalog: Array<{ name: string; category: string; price: number }>;
+}
+
+export interface AIOperationalInsightsResponse {
+    status: 'SUCCESS' | 'INSUFFICIENT_DATA';
+    summary: string;
+    predictions: AIPredictionItem[];
+    recommendations: AIRecommendationItem[];
+    criticalObservations: string[];
+    generatedAt: string;
+    expiresAt: string;
+}
+
+export interface AIGuestRecommendationsResponse {
+    status: 'SUCCESS' | 'INSUFFICIENT_DATA';
+    guestName: string;
+    recommendations: AIRecommendationItem[];
+    generatedAt: string;
+    expiresAt: string;
 }
