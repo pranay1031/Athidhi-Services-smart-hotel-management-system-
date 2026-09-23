@@ -1,4 +1,4 @@
-import { IntegrationClient } from './framework/integration_client';
+import { IntegrationClient } from './framework/integration_client.ts';
 import { IntegrationResponse } from './framework/types';
 
 declare const gs: any;

@@ -16,9 +16,9 @@ import {
     getActionDefinition,
     isActionAllowedForRole,
     validateActionParameters,
-} from './action_registry';
-import { AIActionHandlers } from './action_handlers';
-import { GeminiService } from './gemini_service';
+} from './action_registry.ts';
+import { AIActionHandlers } from './action_handlers.ts';
+import { GeminiService } from './gemini_service.ts';
 
 export class AIGateway {
     /**

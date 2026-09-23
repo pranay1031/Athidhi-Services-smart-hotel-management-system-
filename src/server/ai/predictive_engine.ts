@@ -11,8 +11,8 @@ import {
     RecommendationType,
     PriorityLevel,
 } from './types';
-import { AIContextBuilders } from './context_builders';
-import { GeminiService } from './gemini_service';
+import { AIContextBuilders } from './context_builders.ts';
+import { GeminiService } from './gemini_service.ts';
 
 /**
  * Phase 5D: Predictive & Recommendation Engine

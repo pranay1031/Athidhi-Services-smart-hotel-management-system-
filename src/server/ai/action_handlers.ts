@@ -6,7 +6,7 @@ import { gs, GlideRecord, GlideDateTime } from '@servicenow/glide';
  */
 
 import { UserSessionContext } from './types';
-import { PredictiveEngine } from './predictive_engine';
+import { PredictiveEngine } from './predictive_engine.ts';
 
 export class AIActionHandlers {
     /**

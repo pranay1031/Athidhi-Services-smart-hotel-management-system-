@@ -7,7 +7,7 @@ import { RESTMessageV2 } from '@servicenow/glide/sn_ws';
  */
 
 import { GeminiServiceResponse } from './types';
-import { getGeminiToolDeclarations } from './action_registry';
+import { getGeminiToolDeclarations } from './action_registry.ts';
 
 export class GeminiService {
     private static redactSecrets(text: string): string {
