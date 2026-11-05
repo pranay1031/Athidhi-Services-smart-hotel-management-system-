@@ -1,4 +1,4 @@
-﻿import { Role } from '@servicenow/sdk/core'
+import { Role } from '@servicenow/sdk/core'
 
 export const guestRole = Role({
     name: 'x_2120492_athidhi.guest',
@@ -25,6 +25,16 @@ export const restaurantRole = Role({
     description: 'Athidhi Services: Food and Beverage staff for restaurant orders, dining reservations, and room service',
 })
 
+export const staffRole = Role({
+    name: 'x_2120492_athidhi.staff',
+    description: 'Athidhi Services: Staff Operations for central dispatch, triage, and task assignments',
+})
+
+export const workerRole = Role({
+    name: 'x_2120492_athidhi.worker',
+    description: 'Athidhi Services: Field Worker for touch-friendly personal task execution',
+})
+
 export const managerRole = Role({
     name: 'x_2120492_athidhi.manager',
     description: 'Athidhi Services: Hotel Operations Manager overseeing all departments, escalations, and reports',
@@ -33,6 +43,8 @@ export const managerRole = Role({
         housekeepingRole,
         maintenanceRole,
         restaurantRole,
+        staffRole,
+        workerRole,
     ],
 })
 

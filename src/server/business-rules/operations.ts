@@ -1,5 +1,49 @@
 import { gs, GlideRecord, GlideDateTime } from '@servicenow/glide'
 
+interface EmitNotificationParams {
+    recipient?: string;
+    recipientRole?: 'guest' | 'manager' | 'admin' | 'receptionist' | 'housekeeping' | 'restaurant' | 'maintenance' | 'all';
+    notificationType: 'service_request' | 'reservation' | 'food_order' | 'incident' | 'housekeeping' | 'maintenance' | 'inventory' | 'system';
+    severity?: 'info' | 'warning' | 'critical';
+    title: string;
+    message: string;
+    sourceTable?: string;
+    sourceSysId?: string;
+    actionUrl?: string;
+    deduplicationKey?: string;
+}
+
+function emitNotification(params: EmitNotificationParams): void {
+    try {
+        if (params.deduplicationKey) {
+            const dupGr = new GlideRecord('x_2120492_athidhi_notification');
+            dupGr.addQuery('deduplication_key', params.deduplicationKey);
+            dupGr.addQuery('is_read', false);
+            dupGr.query();
+            if (dupGr.hasNext()) {
+                return;
+            }
+        }
+        const gr = new GlideRecord('x_2120492_athidhi_notification');
+        gr.initialize();
+        if (params.recipient) gr.setValue('recipient', params.recipient);
+        gr.setValue('recipient_role', params.recipientRole || 'all');
+        gr.setValue('notification_type', params.notificationType);
+        gr.setValue('severity', params.severity || 'info');
+        gr.setValue('title', (params.title || '').substring(0, 100));
+        gr.setValue('message', (params.message || '').substring(0, 500));
+        if (params.sourceTable) gr.setValue('source_table', params.sourceTable);
+        if (params.sourceSysId) gr.setValue('source_sys_id', params.sourceSysId);
+        if (params.actionUrl) gr.setValue('action_url', params.actionUrl);
+        if (params.deduplicationKey) gr.setValue('deduplication_key', params.deduplicationKey);
+        gr.setValue('is_read', false);
+        gr.setValue('created_at', new GlideDateTime().getValue());
+        gr.insert();
+    } catch (e: any) {
+        gs.warn('emitNotification failed: ' + (e.message || String(e)));
+    }
+}
+
 /**
  * 1. Reservation Validation
  * Validates dates, guest, room status, room type compatibility, and overlapping reservations.
@@ -128,6 +172,28 @@ export function handleReservationCheckIn(current: any, previous: any): void {
         roomGR.setValue('occupancy_status', 'occupied')
         roomGR.update()
     }
+
+    emitNotification({
+        recipient: guestId,
+        recipientRole: 'guest',
+        notificationType: 'reservation',
+        severity: 'info',
+        title: 'Welcome to Athidhi!',
+        message: 'Your check-in is complete. Room is ready. Enjoy your stay!',
+        sourceTable: 'x_2120492_athidhi_reservation',
+        sourceSysId: current.getUniqueValue(),
+        deduplicationKey: 'checkin_guest_' + current.getUniqueValue(),
+    })
+    emitNotification({
+        recipientRole: 'manager',
+        notificationType: 'reservation',
+        severity: 'info',
+        title: 'Guest Check-In',
+        message: 'Guest checked in for reservation ' + (current.getDisplayValue('reservation_number') || current.getUniqueValue()),
+        sourceTable: 'x_2120492_athidhi_reservation',
+        sourceSysId: current.getUniqueValue(),
+        deduplicationKey: 'checkin_mgr_' + current.getUniqueValue(),
+    })
 }
 
 /**
@@ -181,6 +247,27 @@ export function handleStayCheckOut(current: any, previous: any): void {
             resGR.update()
         }
     }
+
+    emitNotification({
+        recipientRole: 'housekeeping',
+        notificationType: 'housekeeping',
+        severity: 'warning',
+        title: 'Turnover Cleaning Required',
+        message: 'Stay completed for Room. Turnover cleaning task scheduled.',
+        sourceTable: 'x_2120492_athidhi_stay',
+        sourceSysId: current.getUniqueValue(),
+        deduplicationKey: 'checkout_hk_' + current.getUniqueValue(),
+    })
+    emitNotification({
+        recipientRole: 'manager',
+        notificationType: 'reservation',
+        severity: 'info',
+        title: 'Guest Check-Out',
+        message: 'Stay checkout completed for stay record ' + current.getUniqueValue(),
+        sourceTable: 'x_2120492_athidhi_stay',
+        sourceSysId: current.getUniqueValue(),
+        deduplicationKey: 'checkout_mgr_' + current.getUniqueValue(),
+    })
 }
 
 /**
@@ -209,6 +296,17 @@ export function handleHousekeepingCompletion(current: any, previous: any): void 
             roomGR.setValue('status', 'available')
             roomGR.setValue('occupancy_status', 'vacant')
             roomGR.update()
+
+            emitNotification({
+                recipientRole: 'receptionist',
+                notificationType: 'housekeeping',
+                severity: 'info',
+                title: 'Room Ready for Check-In',
+                message: 'Room ' + (roomGR.getValue('room_number') || roomId) + ' is clean, inspected, and ready for check-in.',
+                sourceTable: 'x_2120492_athidhi_room',
+                sourceSysId: roomId,
+                deduplicationKey: 'room_ready_' + roomId + '_' + current.getUniqueValue(),
+            })
         } else {
             roomGR.setValue('housekeeping_status', 'inspected')
             roomGR.setValue('status', 'cleaning')
@@ -227,37 +325,37 @@ export function handleHousekeepingCompletion(current: any, previous: any): void 
  * If maintenance request, also creates a linked Maintenance Request record.
  */
 export function handleServiceRequestCreated(current: any, previous: any): void {
+    const reqType = current.getValue('request_type') || 'other'
+    let mappedTaskType = 'front_desk'
+
+    switch (reqType) {
+        case 'housekeeping':
+            mappedTaskType = 'housekeeping'
+            break
+        case 'maintenance':
+            mappedTaskType = 'maintenance'
+            break
+        case 'room_service':
+        case 'food_and_beverage':
+            mappedTaskType = 'restaurant'
+            break
+        case 'concierge':
+        case 'transportation':
+            mappedTaskType = 'concierge'
+            break
+        case 'luggage':
+        case 'wake_up_call':
+        case 'other':
+        default:
+            mappedTaskType = 'front_desk'
+            break
+    }
+
     const existingWorkTask = new GlideRecord('x_2120492_athidhi_work_task')
     existingWorkTask.addQuery('service_request', current.getUniqueValue())
     existingWorkTask.query()
 
     if (!existingWorkTask.hasNext()) {
-        const reqType = current.getValue('request_type') || 'other'
-        let mappedTaskType = 'front_desk'
-
-        switch (reqType) {
-            case 'housekeeping':
-                mappedTaskType = 'housekeeping'
-                break
-            case 'maintenance':
-                mappedTaskType = 'maintenance'
-                break
-            case 'room_service':
-            case 'food_and_beverage':
-                mappedTaskType = 'restaurant'
-                break
-            case 'concierge':
-            case 'transportation':
-                mappedTaskType = 'concierge'
-                break
-            case 'luggage':
-            case 'wake_up_call':
-            case 'other':
-            default:
-                mappedTaskType = 'front_desk'
-                break
-        }
-
         const wtGR = new GlideRecord('x_2120492_athidhi_work_task')
         wtGR.initialize()
         wtGR.setValue('service_request', current.getUniqueValue())
@@ -288,6 +386,42 @@ export function handleServiceRequestCreated(current: any, previous: any): void {
             mntGR.insert()
         }
     }
+
+    const guestId = current.getValue('guest')
+    if (guestId) {
+        emitNotification({
+            recipient: guestId,
+            recipientRole: 'guest',
+            notificationType: 'service_request',
+            severity: 'info',
+            title: 'Service Request Dispatched',
+            message: 'Your ' + reqType + ' request has been received and assigned to hotel staff.',
+            sourceTable: 'x_2120492_athidhi_service_request',
+            sourceSysId: current.getUniqueValue(),
+            deduplicationKey: 'sr_guest_' + current.getUniqueValue(),
+        })
+    }
+    emitNotification({
+        recipientRole: 'manager',
+        notificationType: 'service_request',
+        severity: current.getValue('priority') === 'high' ? 'warning' : 'info',
+        title: 'New Service Request',
+        message: 'New ' + reqType + ' request: ' + (current.getValue('description') || '').substring(0, 80),
+        sourceTable: 'x_2120492_athidhi_service_request',
+        sourceSysId: current.getUniqueValue(),
+        deduplicationKey: 'sr_mgr_' + current.getUniqueValue(),
+    })
+    const deptRole = mappedTaskType === 'restaurant' ? 'restaurant' : mappedTaskType === 'housekeeping' ? 'housekeeping' : mappedTaskType === 'maintenance' ? 'maintenance' : 'receptionist'
+    emitNotification({
+        recipientRole: deptRole as any,
+        notificationType: 'service_request',
+        severity: current.getValue('priority') === 'high' ? 'warning' : 'info',
+        title: 'Task Assigned [' + reqType + ']',
+        message: current.getValue('description') || 'New task assigned to department',
+        sourceTable: 'x_2120492_athidhi_service_request',
+        sourceSysId: current.getUniqueValue(),
+        deduplicationKey: 'sr_dept_' + current.getUniqueValue(),
+    })
 }
 
 /**
@@ -320,6 +454,21 @@ export function handleMaintenanceResolved(current: any, previous: any): void {
             srGR.setValue('completed_at', new GlideDateTime().getValue())
             srGR.setValue('resolution_notes', current.getValue('resolution_notes') || 'Resolved by maintenance technician')
             srGR.update()
+
+            const guestId = srGR.getValue('guest')
+            if (guestId) {
+                emitNotification({
+                    recipient: guestId,
+                    recipientRole: 'guest',
+                    notificationType: 'maintenance',
+                    severity: 'info',
+                    title: 'Maintenance Issue Resolved',
+                    message: 'Maintenance reported for your room has been resolved.',
+                    sourceTable: 'x_2120492_athidhi_maintenance_request',
+                    sourceSysId: current.getUniqueValue(),
+                    deduplicationKey: 'mnt_guest_' + current.getUniqueValue(),
+                })
+            }
         }
     }
 
@@ -339,6 +488,17 @@ export function handleMaintenanceResolved(current: any, previous: any): void {
             }
         }
     }
+
+    emitNotification({
+        recipientRole: 'receptionist',
+        notificationType: 'maintenance',
+        severity: 'info',
+        title: 'Maintenance Task Completed',
+        message: 'Maintenance task completed for Room. Room status restored.',
+        sourceTable: 'x_2120492_athidhi_maintenance_request',
+        sourceSysId: current.getUniqueValue(),
+        deduplicationKey: 'mnt_rec_' + current.getUniqueValue(),
+    })
 }
 
 /**
@@ -365,10 +525,31 @@ export function handleServiceRequestEscalated(current: any, previous: any): void
         incGR.setValue('room', current.getValue('room'))
         incGR.setValue('category', 'guest_issue')
         incGR.setValue('priority', 'critical')
-        incGR.setValue('short_description', 'Escalated Service Request: ' + current.getDisplayValue('request_number'))
+        incGR.setValue('short_description', 'Escalated Service Request: ' + (current.getDisplayValue('request_number') || current.getUniqueValue()))
         incGR.setValue('description', current.getValue('description'))
         incGR.setValue('state', 'new')
         incGR.setValue('opened_at', new GlideDateTime().getValue())
         incGR.insert()
+
+        emitNotification({
+            recipientRole: 'manager',
+            notificationType: 'incident',
+            severity: 'critical',
+            title: 'CRITICAL: Service Request Escalated',
+            message: 'Service request ' + (current.getDisplayValue('request_number') || current.getUniqueValue()) + ' escalated to critical hotel incident.',
+            sourceTable: 'x_2120492_athidhi_incident',
+            sourceSysId: incGR.getUniqueValue(),
+            deduplicationKey: 'esc_mgr_' + current.getUniqueValue(),
+        })
+        emitNotification({
+            recipientRole: 'admin',
+            notificationType: 'incident',
+            severity: 'critical',
+            title: 'CRITICAL: Hotel Incident Created',
+            message: 'Critical incident logged from service request ' + (current.getDisplayValue('request_number') || current.getUniqueValue()),
+            sourceTable: 'x_2120492_athidhi_incident',
+            sourceSysId: incGR.getUniqueValue(),
+            deduplicationKey: 'esc_adm_' + current.getUniqueValue(),
+        })
     }
 }

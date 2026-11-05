@@ -333,6 +333,22 @@ declare global {
                         table: 'sys_security_acl'
                         id: '9ed84c72827e4148a2a00ff7c74ff1f1'
                     }
+                    acl_notif_create: {
+                        table: 'sys_security_acl'
+                        id: '780c0481e69143ec97edc997e5e57767'
+                    }
+                    acl_notif_delete: {
+                        table: 'sys_security_acl'
+                        id: '63a03defb08b4891b1ab93a579db2139'
+                    }
+                    acl_notif_read: {
+                        table: 'sys_security_acl'
+                        id: '7eba84f0ee7d4bcfa39d26a3b1bc0908'
+                    }
+                    acl_notif_write: {
+                        table: 'sys_security_acl'
+                        id: '4eb0f66e1f824f1691591d0fe7f36870'
+                    }
                     acl_pay_create_guest: {
                         table: 'sys_security_acl'
                         id: '078d316b4c4548d399dcf8a2ab9ccfaf'
@@ -851,6 +867,26 @@ declare global {
                         table: 'sys_app_module'
                         id: '292fe9c00d8a420494fb30fd4749e770'
                     }
+                    mod_notifications_list: {
+                        table: 'sys_app_module'
+                        id: 'e080bed2ec474246a5b443e22a2faab6'
+                    }
+                    mod_portal_admin: {
+                        table: 'sys_app_module'
+                        id: '57d6ce82eae84ada8693085bef52497f'
+                    }
+                    mod_portal_manager: {
+                        table: 'sys_app_module'
+                        id: 'a4803f0dbee743079e8da8e10dfe09c6'
+                    }
+                    mod_portal_staff: {
+                        table: 'sys_app_module'
+                        id: 'bcdb0ee86ff44d21aa6dfd77f4673374'
+                    }
+                    mod_portal_worker: {
+                        table: 'sys_app_module'
+                        id: '93a9fd0bd1f24a258aa0c6f5ef97383f'
+                    }
                     mod_room_availability: {
                         table: 'sys_app_module'
                         id: '9ef09611cc2d4072874693a3043308dc'
@@ -894,6 +930,10 @@ declare global {
                     mod_sep_management: {
                         table: 'sys_app_module'
                         id: '5191626a3ac7404d8cd50888c0b84f14'
+                    }
+                    mod_sep_portals: {
+                        table: 'sys_app_module'
+                        id: 'f7ed800c6f294af7be549936ea1726ae'
                     }
                     mod_sep_rooms_housekeeping: {
                         table: 'sys_app_module'
@@ -1064,6 +1104,10 @@ declare global {
                         table: 'sys_script_include'
                         id: 'a8910492cda12480bb18374d9e039999'
                     }
+                    si_notification_ajax: {
+                        table: 'sys_script_include'
+                        id: 'fc03d2573be3475ab74132231139d17d'
+                    }
                     src_server_ai_action_handlers_ts: {
                         table: 'sys_module'
                         id: '90af5af3ecba4c7c9b888203785e4601'
@@ -1136,6 +1180,10 @@ declare global {
                         table: 'sys_module'
                         id: 'c744383895114b26823aec5c95907b2d'
                     }
+                    src_server_notifications_notification_service_ts: {
+                        table: 'sys_module'
+                        id: 'c9ef0916c9b34181b45d8fa0d9bec88c'
+                    }
                     src_server_operations_kpi_summary_ts: {
                         table: 'sys_module'
                         id: '9cbc4e5b14ba4f57b0e6403c059608cb'
@@ -1148,6 +1196,10 @@ declare global {
                     'src_server_script-includes_ai_concierge_ajax_js': {
                         table: 'sys_module'
                         id: 'fdc0a0f6c8a640aeae16afe89a89164d'
+                    }
+                    'src_server_script-includes_notification_ajax_js': {
+                        table: 'sys_module'
+                        id: '1668c17d5629443c99d703ad2ef1587f'
                     }
                     test_rest_msg: {
                         table: 'sys_rest_message'
@@ -1225,6 +1277,19 @@ declare global {
                     }
                 }
                 composite: [
+                    {
+                        table: 'sys_security_acl_role'
+                        id: '0025a9d7fa7f4cabb3166e1bb3b54e7e'
+                        key: {
+                            sys_security_acl: '4eb0f66e1f824f1691591d0fe7f36870'
+                            sys_user_role: {
+                                id: '7a58b2b3dd1e4586ad7b6fb331fb8788'
+                                key: {
+                                    name: 'x_2120492_athidhi.guest'
+                                }
+                            }
+                        }
+                    },
                     {
                         table: 'sys_db_object'
                         id: '0038bd165bc442fe9d00a55d07cca6d3'
@@ -1393,6 +1458,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: '02b9f50bd8d94784b773c7945f178266'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'recipient_role'
+                            value: 'housekeeping'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '02c64f25989a4ba7ab56b455cb48a2ee'
                         key: {
@@ -1408,6 +1482,15 @@ declare global {
                             name: 'x_2120492_athidhi_service_request'
                             element: 'status'
                             value: 'accepted'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '02dbe98496ec40039c2160de45df0686'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'notification_type'
+                            value: 'system'
                         }
                     },
                     {
@@ -1659,6 +1742,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: '06c4fdc5b38440f4bea50b61549569d5'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'source_sys_id'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: '06e241dfc42c4907b23be6d9124b9c3a'
                         key: {
@@ -1691,6 +1783,15 @@ declare global {
                                     name: 'x_2120492_athidhi.restaurant'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '06f908de08904fdabc0ab304edfef061'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'recipient_role'
+                            value: 'guest'
                         }
                     },
                     {
@@ -2386,6 +2487,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: '10f15a404a0c4bec8eea68608408ec72'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'created_at'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: '12500d0079b14afa94f3589d0c7a8538'
                         key: {
@@ -2420,10 +2530,31 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '136ab5e814eb47dcae60b2ad4806acc1'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'source_sys_id'
+                        }
+                    },
+                    {
                         table: 'sys_ui_action_role'
                         id: '13739de2f22b4f00b3c07725aaa547ed'
                         key: {
                             sys_ui_action: 'a18b0f47a93043a2af26fcd7fc9bf742'
+                            sys_user_role: {
+                                id: 'bd9b587c1f9047609d32f4eea97e73bb'
+                                key: {
+                                    name: 'x_2120492_athidhi.restaurant'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: '13cc4355152d44c7822bab4b0d526728'
+                        key: {
+                            sys_security_acl: '7eba84f0ee7d4bcfa39d26a3b1bc0908'
                             sys_user_role: {
                                 id: 'bd9b587c1f9047609d32f4eea97e73bb'
                                 key: {
@@ -2566,6 +2697,19 @@ declare global {
                             name: 'x_2120492_athidhi_maintenance_request'
                             element: 'category'
                             value: 'other'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: '16ffe4c0198a44dcb1053addc0c461be'
+                        key: {
+                            sys_security_acl: '780c0481e69143ec97edc997e5e57767'
+                            sys_user_role: {
+                                id: '8f68f11dd010432ba80972aa8ac2b77d'
+                                key: {
+                                    name: 'x_2120492_athidhi.housekeeping'
+                                }
+                            }
                         }
                     },
                     {
@@ -2839,6 +2983,14 @@ declare global {
                     },
                     {
                         table: 'sys_dictionary'
+                        id: '1b8c2c7eab1c4128aaf9a5fcd901fea5'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
                         id: '1bb193ac178844deb3cb546dbc33c0cb'
                         key: {
                             name: 'x_2120492_athidhi_inventory_item'
@@ -3058,6 +3210,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: '1e6d8ce099b5477398cc79f2495a235d'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'recipient_role'
+                            value: 'all'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: '1e7171d655c645fcb0234c245bc60dd8'
                         key: {
@@ -3217,6 +3378,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice_set'
+                        id: '2173c5def97e444da0dad6354a8b1dc7'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'notification_type'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: '21e785a892b84c6b874a77a6244e40b7'
                         key: {
@@ -3274,6 +3443,24 @@ declare global {
                     },
                     {
                         table: 'sys_documentation'
+                        id: '2295e81b84d0406c8fd6cc296dd40be8'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'recipient'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '22c4a069058e4777942337a748857782'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'notification_type'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
                         id: '22dd70f12ead42d593e5d30116a7ea74'
                         key: {
                             name: 'x_2120492_athidhi_staff_profile'
@@ -3313,6 +3500,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: '2384079d5385436ca4dad373d8973a78'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'NULL'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_choice'
                         id: '23c7c4a88b544c3abd247621de1bffd4'
                         key: {
@@ -3326,6 +3522,19 @@ declare global {
                         id: '240a492786cd43859dd397028582ac16'
                         key: {
                             name: 'x_2120492_athidhi.receptionist'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: '244dce90a31c434c9dbf2467d253a726'
+                        key: {
+                            sys_security_acl: '4eb0f66e1f824f1691591d0fe7f36870'
+                            sys_user_role: {
+                                id: 'b45ac46436c14974b223c8bff451f7e8'
+                                key: {
+                                    name: 'x_2120492_athidhi.admin'
+                                }
+                            }
                         }
                     },
                     {
@@ -3441,6 +3650,19 @@ declare global {
                                 id: '240a492786cd43859dd397028582ac16'
                                 key: {
                                     name: 'x_2120492_athidhi.receptionist'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: '25e9d1d3222b4daf826590f9eb916a95'
+                        key: {
+                            sys_security_acl: '780c0481e69143ec97edc997e5e57767'
+                            sys_user_role: {
+                                id: '3e9f6959b3014deca7ed1004952c0462'
+                                key: {
+                                    name: 'x_2120492_athidhi.maintenance'
                                 }
                             }
                         }
@@ -3645,6 +3867,15 @@ declare global {
                     },
                     {
                         table: 'sys_choice'
+                        id: '280aaca489624e12934630fafa0aa104'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'notification_type'
+                            value: 'housekeeping'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
                         id: '2855ba8fa1ce44f98b6721905c1bf5cd'
                         key: {
                             name: 'x_2120492_athidhi_incident'
@@ -3672,6 +3903,15 @@ declare global {
                                     name: 'x_2120492_athidhi.admin'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '28f1cd42d8ce42b7998988d9e22eb189'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'expires_at'
+                            language: 'en'
                         }
                     },
                     {
@@ -3740,6 +3980,19 @@ declare global {
                     },
                     {
                         table: 'sys_security_acl_role'
+                        id: '2a21c31605c3406ba16563b854c9969a'
+                        key: {
+                            sys_security_acl: '4eb0f66e1f824f1691591d0fe7f36870'
+                            sys_user_role: {
+                                id: 'bd9b587c1f9047609d32f4eea97e73bb'
+                                key: {
+                                    name: 'x_2120492_athidhi.restaurant'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
                         id: '2a2741f4b87242c0ad04664865d2f449'
                         key: {
                             sys_security_acl: 'ff4d6d536ed14135ae4cb6398f31bd27'
@@ -3758,6 +4011,15 @@ declare global {
                             name: 'x_2120492_athidhi_maintenance_request'
                             element: 'category'
                             value: 'hvac'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '2aed86dc6a494bfb9e6b1677685b41f7'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'action_url'
+                            language: 'en'
                         }
                     },
                     {
@@ -3812,6 +4074,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: '2c909a8880c9493d983117b23a64c357'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'notification_type'
+                            value: 'reservation'
+                        }
+                    },
+                    {
                         table: 'sys_choice_set'
                         id: '2cfa3b2a98b64f9cb7bfd3abcccc75e2'
                         key: {
@@ -3854,6 +4125,14 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_guest'
                             element: 'state'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '2dcbff5073fa45cb8b43afb0d471e364'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'action_url'
                         }
                     },
                     {
@@ -3904,6 +4183,19 @@ declare global {
                             name: 'x_2120492_athidhi_integration_log'
                             element: 'integration_name'
                             value: 'workspace'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: '2fac89bb26a149a395185bcd384bae74'
+                        key: {
+                            sys_security_acl: '63a03defb08b4891b1ab93a579db2139'
+                            sys_user_role: {
+                                id: 'b45ac46436c14974b223c8bff451f7e8'
+                                key: {
+                                    name: 'x_2120492_athidhi.admin'
+                                }
+                            }
                         }
                     },
                     {
@@ -4108,12 +4400,28 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '3385a46f863d40d68fc7102ea604808f'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'title'
+                        }
+                    },
+                    {
                         table: 'sys_choice'
                         id: '339bcf5f2a864ffa9f5fe9e9031981c9'
                         key: {
                             name: 'x_2120492_athidhi_incident'
                             element: 'state'
                             value: 'resolved'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '33d86035e55d4ecaa72e7dc69d9b9e80'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'read_at'
                         }
                     },
                     {
@@ -4263,6 +4571,23 @@ declare global {
                             name: 'x_2120492_athidhi_room'
                             element: 'housekeeping_status'
                             value: 'in_progress'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '35e7c91ec19a4e839e98d32b27cbcdf5'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'severity'
+                            value: 'warning'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '35ed1e33afcc40aeb189773fd83bef17'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'notification_type'
                         }
                     },
                     {
@@ -4454,6 +4779,19 @@ declare global {
                             name: 'x_2120492_athidhi_service_catalog_item'
                             element: 'default_priority'
                             value: 'low'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: '394a6fbf032e485fa19160d8069c6979'
+                        key: {
+                            sys_security_acl: '780c0481e69143ec97edc997e5e57767'
+                            sys_user_role: {
+                                id: 'bd9b587c1f9047609d32f4eea97e73bb'
+                                key: {
+                                    name: 'x_2120492_athidhi.restaurant'
+                                }
+                            }
                         }
                     },
                     {
@@ -4924,6 +5262,19 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_security_acl_role'
+                        id: '415bb12d64094bf68a2b3105152f92bb'
+                        key: {
+                            sys_security_acl: '7eba84f0ee7d4bcfa39d26a3b1bc0908'
+                            sys_user_role: {
+                                id: '240a492786cd43859dd397028582ac16'
+                                key: {
+                                    name: 'x_2120492_athidhi.receptionist'
+                                }
+                            }
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: '41903fbcc07d4abe931301e694b8e737'
                         key: {
@@ -5326,6 +5677,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '4727a37c69994f249ec847bdcb68c8f7'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'source_table'
+                        }
+                    },
+                    {
                         table: 'sys_ui_action_role'
                         id: '4757310ee7e54267a62f52f4cba26fe5'
                         key: {
@@ -5497,6 +5856,15 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_work_task'
                             element: 'opened_at'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '492ed9afcf2146ba90643ff0960f649d'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'source_table'
+                            language: 'en'
                         }
                     },
                     {
@@ -6122,6 +6490,13 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_user_role'
+                        id: '519dab9528804abc803fbd66423a356c'
+                        key: {
+                            name: 'x_2120492_athidhi.staff'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '51a9f976417a4b9cb12695b60e52e672'
                         key: {
@@ -6156,6 +6531,15 @@ declare global {
                     },
                     {
                         table: 'sys_documentation'
+                        id: '52044e8869be481a8944fdc636106e6d'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'message'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
                         id: '525cfcbe7e0644d382ab5338eaf7a5d9'
                         key: {
                             name: 'x_2120492_athidhi_ai_interaction_log'
@@ -6178,6 +6562,19 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_inventory_item'
                             element: 'category'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: '5286dbc3e9de413590fc53fa41ffc5e4'
+                        key: {
+                            sys_security_acl: '4eb0f66e1f824f1691591d0fe7f36870'
+                            sys_user_role: {
+                                id: '3e9f6959b3014deca7ed1004952c0462'
+                                key: {
+                                    name: 'x_2120492_athidhi.maintenance'
+                                }
+                            }
                         }
                     },
                     {
@@ -6216,6 +6613,15 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_food_order_item'
                             element: 'quantity'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '53608922c57949ea8dd73cde9898aa02'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'is_read'
+                            language: 'en'
                         }
                     },
                     {
@@ -6331,6 +6737,24 @@ declare global {
                             name: 'x_2120492_athidhi_stay'
                             element: 'adults'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '5614b57bb8464e21ac1fc00eb572a6a3'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'title'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '5688bd38bfd8437ba114b72f4d21c7cf'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'notification_type'
+                            value: 'food_order'
                         }
                     },
                     {
@@ -6534,6 +6958,14 @@ declare global {
                                     name: 'x_2120492_athidhi.admin'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_choice_set'
+                        id: '5a3d0989f59741639bc354ad093569c6'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'severity'
                         }
                     },
                     {
@@ -6758,12 +7190,32 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_security_acl_role'
+                        id: '5e060a753d2a4b0b8dae29431844d42c'
+                        key: {
+                            sys_security_acl: '4eb0f66e1f824f1691591d0fe7f36870'
+                            sys_user_role: {
+                                id: '240a492786cd43859dd397028582ac16'
+                                key: {
+                                    name: 'x_2120492_athidhi.receptionist'
+                                }
+                            }
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '5e311d56ac434099a2633a8d9defc666'
                         key: {
                             name: 'x_2120492_athidhi_housekeeping_task'
                             element: 'completed_at'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_user_role'
+                        id: '5e53ea71afc84e6a903ddd0158cd4930'
+                        key: {
+                            name: 'x_2120492_athidhi.worker'
                         }
                     },
                     {
@@ -7207,6 +7659,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: '655f1a095bfb4bc58ea293074040d3dd'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'deduplication_key'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: '657a2ff99a8c40e3861b85cf6c89464c'
                         key: {
@@ -7288,6 +7749,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: '66f20e977b2c46ef98a83613ff420e9e'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'notification_type'
+                            value: 'incident'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: '66f3b8bf9584430cb144d60e0869e995'
                         key: {
@@ -7323,6 +7793,15 @@ declare global {
                             name: 'x_2120492_athidhi_ai_interaction_log'
                             element: 'action_result'
                             value: 'ACTION_REQUIRED'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '6768ed9f9dc340c1acb67f2654bf1d99'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'notification_number'
+                            language: 'en'
                         }
                     },
                     {
@@ -7409,6 +7888,14 @@ declare global {
                             name: 'x_2120492_athidhi_menu_item'
                             element: 'dietary_type'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '68a02187a43c4ed69e8fbbb514b8fea8'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'is_read'
                         }
                     },
                     {
@@ -7551,6 +8038,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '6a20b4e2cfaf4955af011e1c5619c40d'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'recipient_role'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: '6a2436bbbb5641588d6971ce3b0ac1d3'
                         deleted: true
@@ -7621,6 +8116,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: '6b3aec9d856843b2ac7f0bfed6131754'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'recipient_role'
+                            value: 'manager'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '6b489658c04b45cb93518dac8f226616'
                         key: {
@@ -7652,6 +8156,14 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_service_catalog_item'
                             element: 'active'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '6c21f1bf1b374d42933bd141d6866b21'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'message'
                         }
                     },
                     {
@@ -7724,6 +8236,15 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_room'
                             element: 'base_price'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '6cea8b3bf71c4c49a4220ea79bf17ac3'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'notification_type'
+                            value: 'inventory'
                         }
                     },
                     {
@@ -7861,6 +8382,15 @@ declare global {
                                     name: 'x_2120492_athidhi.admin'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '6fdb2eea228f40f1afa216ebf589e8f5'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'recipient_role'
+                            value: 'receptionist'
                         }
                     },
                     {
@@ -8976,6 +9506,19 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_security_acl_role'
+                        id: '7fa4f8ed0d2f48b2bc2229923fd58261'
+                        key: {
+                            sys_security_acl: '780c0481e69143ec97edc997e5e57767'
+                            sys_user_role: {
+                                id: 'b45ac46436c14974b223c8bff451f7e8'
+                                key: {
+                                    name: 'x_2120492_athidhi.admin'
+                                }
+                            }
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: '7fbda37c2bdd4c7394f660982886b4be'
                         key: {
@@ -9107,6 +9650,19 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_food_order'
                             element: 'priority'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: '82c7546637ab43f8b3bdb7d3e6d876d2'
+                        key: {
+                            sys_security_acl: '780c0481e69143ec97edc997e5e57767'
+                            sys_user_role: {
+                                id: '240a492786cd43859dd397028582ac16'
+                                key: {
+                                    name: 'x_2120492_athidhi.receptionist'
+                                }
+                            }
                         }
                     },
                     {
@@ -9433,6 +9989,15 @@ declare global {
                     },
                     {
                         table: 'sys_choice'
+                        id: '88195a5a1bd64f61b7160027afb624c6'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'recipient_role'
+                            value: 'restaurant'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
                         id: '886a5042427d4287b0e0e046ace7a957'
                         key: {
                             name: 'x_2120492_athidhi_service_request'
@@ -9540,6 +10105,13 @@ declare global {
                                     name: 'x_2120492_athidhi.receptionist'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_ui_page'
+                        id: '89fadd610c284a4a9fb3e08257026a3f'
+                        key: {
+                            endpoint: 'x_2120492_athidhi_staff_portal.do'
                         }
                     },
                     {
@@ -9739,6 +10311,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: '8d0d17947b10420c8c56d3a180629669'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'read_at'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: '8d0e6cbbb37e4f17b13fd10920fe3d92'
                         key: {
@@ -9935,6 +10516,13 @@ declare global {
                         }
                     },
                     {
+                        table: 'ua_table_licensing_config'
+                        id: '902f13c9551c45bcaf01d38dc9ad2a8d'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: '90b481ef6de44302bdad80c025c15b40'
                         key: {
@@ -9943,6 +10531,19 @@ declare global {
                                 id: '8f68f11dd010432ba80972aa8ac2b77d'
                                 key: {
                                     name: 'x_2120492_athidhi.housekeeping'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: '90b82e57b1fc4235b2494315887f2281'
+                        key: {
+                            sys_security_acl: '4eb0f66e1f824f1691591d0fe7f36870'
+                            sys_user_role: {
+                                id: '0e2c8b4a8bd0443fb576b6f6b6349fbe'
+                                key: {
+                                    name: 'x_2120492_athidhi.manager'
                                 }
                             }
                         }
@@ -9992,6 +10593,13 @@ declare global {
                             name: 'x_2120492_athidhi_housekeeping_task'
                             element: 'inspection_status'
                             value: 'failed'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_page'
+                        id: '91dd5566eaf04217841c90a56e91f953'
+                        key: {
+                            endpoint: 'x_2120492_athidhi_admin_portal.do'
                         }
                     },
                     {
@@ -10200,6 +10808,15 @@ declare global {
                             name: 'x_2120492_athidhi_guest'
                             element: 'loyalty_tier'
                             value: 'silver'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '9514c155178c4a1ab258dfb13bd60fa9'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'notification_type'
+                            value: 'maintenance'
                         }
                     },
                     {
@@ -10596,6 +11213,19 @@ declare global {
                     },
                     {
                         table: 'sys_security_acl_role'
+                        id: '9c4f992b8b1b4f608f354be12c7e2ebb'
+                        key: {
+                            sys_security_acl: '7eba84f0ee7d4bcfa39d26a3b1bc0908'
+                            sys_user_role: {
+                                id: '0e2c8b4a8bd0443fb576b6f6b6349fbe'
+                                key: {
+                                    name: 'x_2120492_athidhi.manager'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
                         id: '9c52d721a3aa4ea9be3047b738eed0d7'
                         key: {
                             sys_security_acl: '1d20953c74b94a5cb3927f1f34eefe7e'
@@ -10768,6 +11398,15 @@ declare global {
                                     name: 'x_2120492_athidhi.admin'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '9ebfe1b4e1fa4036b62ced6b7a4fe7e5'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'notification_type'
+                            value: 'service_request'
                         }
                     },
                     {
@@ -11903,6 +12542,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: 'b1cb9e37e3c845088608be5bcb6dccb6'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'severity'
+                            value: 'info'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: 'b1f124a296e0439f9370ca77b5aeeba7'
                         key: {
@@ -11929,6 +12577,14 @@ declare global {
                                     name: 'x_2120492_athidhi.manager'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'b236720b011d4b749692fc178113c94b'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'recipient'
                         }
                     },
                     {
@@ -12061,10 +12717,27 @@ declare global {
                     },
                     {
                         table: 'sys_dictionary'
+                        id: 'b39f6c585f6d413bbdb6422b0367be14'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'deduplication_key'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
                         id: 'b3dbb4b0aa2b433faad0b0ef53a22cc8'
                         key: {
                             name: 'x_2120492_athidhi_food_order_item'
                             element: 'special_instructions'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'b4091933e98846fb87e0155824762a32'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'recipient_role'
+                            language: 'en'
                         }
                     },
                     {
@@ -12114,6 +12787,13 @@ declare global {
                                     name: 'x_2120492_athidhi.restaurant'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_ui_page'
+                        id: 'b4cbb20525a446c6b93e2ad95ff94e03'
+                        key: {
+                            endpoint: 'x_2120492_athidhi_worker_portal.do'
                         }
                     },
                     {
@@ -12669,6 +13349,14 @@ declare global {
                     },
                     {
                         table: 'sys_dictionary'
+                        id: 'bbd3566d2d5d4a32b1fd751e01293ecd'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'expires_at'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
                         id: 'bbd4961f020b44ff8049537cf3f30659'
                         key: {
                             name: 'x_2120492_athidhi_payment'
@@ -12881,6 +13569,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: 'bf5da6a07e39417cb579c9364b215d17'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'severity'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: 'bf7695b3e12046bdbf1f6130cfe6c1bd'
                         key: {
@@ -13053,6 +13750,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice_set'
+                        id: 'c216d0937b8a4606a3a1c61cb11707ba'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'recipient_role'
+                        }
+                    },
+                    {
                         table: 'sys_choice'
                         id: 'c220189a3ea348288b767792d2e1c17c'
                         key: {
@@ -13070,12 +13775,33 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_security_acl_role'
+                        id: 'c2c79317929a4daf88824e9802e493ee'
+                        key: {
+                            sys_security_acl: '780c0481e69143ec97edc997e5e57767'
+                            sys_user_role: {
+                                id: '0e2c8b4a8bd0443fb576b6f6b6349fbe'
+                                key: {
+                                    name: 'x_2120492_athidhi.manager'
+                                }
+                            }
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: 'c2d3eacb599e49848c6be4d1d9db246d'
                         key: {
                             name: 'x_2120492_athidhi_restaurant'
                             element: 'closing_time'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_number'
+                        id: 'c2db0e873f5b453d803672ce2abda823'
+                        key: {
+                            category: 'x_2120492_athidhi_notification'
+                            prefix: 'NTF'
                         }
                     },
                     {
@@ -13119,11 +13845,38 @@ declare global {
                     },
                     {
                         table: 'sys_choice'
+                        id: 'c438f68edfd649a19dbc01f75b2a4b0f'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'recipient_role'
+                            value: 'maintenance'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
                         id: 'c466e6cba22c4f748e0a268589048358'
                         key: {
                             name: 'x_2120492_athidhi_inventory_reorder'
                             element: 'status'
                             value: 'requested'
+                        }
+                    },
+                    {
+                        table: 'sys_user_role_contains'
+                        id: 'c467ef6d12d14529b935dfe4ecd0229c'
+                        key: {
+                            role: {
+                                id: '0e2c8b4a8bd0443fb576b6f6b6349fbe'
+                                key: {
+                                    name: 'x_2120492_athidhi.manager'
+                                }
+                            }
+                            contains: {
+                                id: '5e53ea71afc84e6a903ddd0158cd4930'
+                                key: {
+                                    name: 'x_2120492_athidhi.worker'
+                                }
+                            }
                         }
                     },
                     {
@@ -13520,6 +14273,19 @@ declare global {
                             name: 'x_2120492_athidhi_inventory_item'
                             element: 'storage_location'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: 'cd732ed0b5ca41a084c0c042383a324a'
+                        key: {
+                            sys_security_acl: '4eb0f66e1f824f1691591d0fe7f36870'
+                            sys_user_role: {
+                                id: '8f68f11dd010432ba80972aa8ac2b77d'
+                                key: {
+                                    name: 'x_2120492_athidhi.housekeeping'
+                                }
+                            }
                         }
                     },
                     {
@@ -14133,6 +14899,13 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_service_request'
                             element: 'description'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_page'
+                        id: 'd667e94eed1f4c0ca4d61f5f589dc2ce'
+                        key: {
+                            endpoint: 'x_2120492_athidhi_manager_portal.do'
                         }
                     },
                     {
@@ -14811,6 +15584,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: 'e15b574b7c424d6caf00661fa76a980c'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'severity'
+                        }
+                    },
+                    {
                         table: 'sys_choice'
                         id: 'e161599e8c4748bf9f584aeea7db6057'
                         key: {
@@ -14835,6 +15616,14 @@ declare global {
                             name: 'x_2120492_athidhi_service_request'
                             element: 'department'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'e1ed2f39e9194ecb984ac934e937cc03'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'created_at'
                         }
                     },
                     {
@@ -14917,6 +15706,13 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_maintenance_request'
                             element: 'request_number'
+                        }
+                    },
+                    {
+                        table: 'sys_db_object'
+                        id: 'e2edd8cb6aec4c0ea75675fdff956a0e'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
                         }
                     },
                     {
@@ -15076,6 +15872,19 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_security_acl_role'
+                        id: 'e5d99a2354d14660a2d9ebd4bd5b55cc'
+                        key: {
+                            sys_security_acl: '780c0481e69143ec97edc997e5e57767'
+                            sys_user_role: {
+                                id: '7a58b2b3dd1e4586ad7b6fb331fb8788'
+                                key: {
+                                    name: 'x_2120492_athidhi.guest'
+                                }
+                            }
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: 'e5d9cbe2c10640c2a1600a349d15dff8'
                         key: {
@@ -15120,6 +15929,15 @@ declare global {
                             name: 'x_2120492_athidhi_room'
                             element: 'room_type'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'e6fc2498832b4973ba46b81b52e42460'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'recipient_role'
+                            value: 'admin'
                         }
                     },
                     {
@@ -15191,6 +16009,24 @@ declare global {
                                 id: 'b45ac46436c14974b223c8bff451f7e8'
                                 key: {
                                     name: 'x_2120492_athidhi.admin'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_user_role_contains'
+                        id: 'e814f678ffe54ad1baeb660788bfd484'
+                        key: {
+                            role: {
+                                id: '0e2c8b4a8bd0443fb576b6f6b6349fbe'
+                                key: {
+                                    name: 'x_2120492_athidhi.manager'
+                                }
+                            }
+                            contains: {
+                                id: '519dab9528804abc803fbd66423a356c'
+                                key: {
+                                    name: 'x_2120492_athidhi.staff'
                                 }
                             }
                         }
@@ -15433,6 +16269,19 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_security_acl_role'
+                        id: 'ed28a385ab2c459baea1ab80a326a1d7'
+                        key: {
+                            sys_security_acl: '7eba84f0ee7d4bcfa39d26a3b1bc0908'
+                            sys_user_role: {
+                                id: '8f68f11dd010432ba80972aa8ac2b77d'
+                                key: {
+                                    name: 'x_2120492_athidhi.housekeeping'
+                                }
+                            }
+                        }
+                    },
+                    {
                         table: 'sys_choice'
                         id: 'ed2d9f010620490f9d40e531b2d30813'
                         key: {
@@ -15511,6 +16360,19 @@ declare global {
                                 id: '0e2c8b4a8bd0443fb576b6f6b6349fbe'
                                 key: {
                                     name: 'x_2120492_athidhi.manager'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: 'eea3797f368e437ba081f3cf346db472'
+                        key: {
+                            sys_security_acl: '7eba84f0ee7d4bcfa39d26a3b1bc0908'
+                            sys_user_role: {
+                                id: 'b45ac46436c14974b223c8bff451f7e8'
+                                key: {
+                                    name: 'x_2120492_athidhi.admin'
                                 }
                             }
                         }
@@ -15653,6 +16515,15 @@ declare global {
                         key: {
                             name: 'x_2120492_athidhi_incident'
                             element: 'incident_number'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'f0e329423b7149d9b858918fbe2455d6'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'severity'
+                            value: 'critical'
                         }
                     },
                     {
@@ -15882,6 +16753,19 @@ declare global {
                             name: 'x_2120492_athidhi_stay'
                             element: 'status'
                             value: 'checked_out'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: 'f4d30f8b42274ef18b0ce4e0866420d6'
+                        key: {
+                            sys_security_acl: '7eba84f0ee7d4bcfa39d26a3b1bc0908'
+                            sys_user_role: {
+                                id: '7a58b2b3dd1e4586ad7b6fb331fb8788'
+                                key: {
+                                    name: 'x_2120492_athidhi.guest'
+                                }
+                            }
                         }
                     },
                     {
@@ -16188,6 +17072,19 @@ declare global {
                     },
                     {
                         table: 'sys_security_acl_role'
+                        id: 'faf28935446940c3832b106c384d3bfe'
+                        key: {
+                            sys_security_acl: '7eba84f0ee7d4bcfa39d26a3b1bc0908'
+                            sys_user_role: {
+                                id: '3e9f6959b3014deca7ed1004952c0462'
+                                key: {
+                                    name: 'x_2120492_athidhi.maintenance'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
                         id: 'fb244e677bc34206bfe9534239c65301'
                         key: {
                             sys_security_acl: '89302a9c479b4cfdbf5ef4ccb17ff38e'
@@ -16347,6 +17244,14 @@ declare global {
                             name: 'x_2120492_athidhi_integration_log'
                             element: 'external_system'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'fe303a881edb4dbdb6360c93517cd0b1'
+                        key: {
+                            name: 'x_2120492_athidhi_notification'
+                            element: 'notification_number'
                         }
                     },
                     {

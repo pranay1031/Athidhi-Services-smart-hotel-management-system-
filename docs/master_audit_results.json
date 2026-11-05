@@ -1,0 +1,1003 @@
+{
+  "timestamp": "2026-09-26T02:36:54.575Z",
+  "instance": "https://dev420430.service-now.com",
+  "tables": {
+    "x_2120492_athidhi_room_type": {
+      "count": 3,
+      "error": null,
+      "sample": [
+        {
+          "sys_id": "3f4ce6b873ab07505766fda14ab8b71b",
+          "display_value": "Presidential Godavari Suite"
+        },
+        {
+          "sys_id": "b34ce6b873ab07505766fda14ab8b71a",
+          "display_value": "Deluxe Heritage Room"
+        },
+        {
+          "sys_id": "f74ce6b873ab07505766fda14ab8b71b",
+          "display_value": "Executive Suite"
+        }
+      ]
+    },
+    "x_2120492_athidhi_room": {
+      "count": 14,
+      "error": null,
+      "sample": [
+        {
+          "sys_id": "3b4ce6b873ab07505766fda14ab8b71d",
+          "display_value": "104"
+        },
+        {
+          "sys_id": "3f4ce6b873ab07505766fda14ab8b71e",
+          "display_value": "204"
+        },
+        {
+          "sys_id": "6920c329736b8b505766fda14ab8b7f9",
+          "display_value": "205"
+        }
+      ]
+    },
+    "x_2120492_athidhi_guest": {
+      "count": 11,
+      "error": null,
+      "sample": [
+        {
+          "sys_id": "24304729736b8b505766fda14ab8b73d",
+          "display_value": "System"
+        },
+        {
+          "sys_id": "334ce6b873ab07505766fda14ab8b723",
+          "display_value": "Pranav"
+        },
+        {
+          "sys_id": "3b4ce6b873ab07505766fda14ab8b720",
+          "display_value": "Anusha"
+        }
+      ]
+    },
+    "x_2120492_athidhi_reservation": {
+      "count": 11,
+      "error": null,
+      "sample": [
+        {
+          "sys_id": "485ce6b873ab07505766fda14ab8b750",
+          "display_value": "485ce6b873ab07505766fda14ab8b750"
+        },
+        {
+          "sys_id": "774ce6b873ab07505766fda14ab8b740",
+          "display_value": "774ce6b873ab07505766fda14ab8b740"
+        },
+        {
+          "sys_id": "7d308729736b8b505766fda14ab8b74d",
+          "display_value": "7d308729736b8b505766fda14ab8b74d"
+        }
+      ]
+    },
+    "x_2120492_athidhi_stay": {
+      "count": 7,
+      "error": null,
+      "sample": [
+        {
+          "sys_id": "1d304729736b8b505766fda14ab8b7b6",
+          "display_value": "1d304729736b8b505766fda14ab8b7b6"
+        },
+        {
+          "sys_id": "334ce6b873ab07505766fda14ab8b748",
+          "display_value": "334ce6b873ab07505766fda14ab8b748"
+        },
+        {
+          "sys_id": "3b4ce6b873ab07505766fda14ab8b74d",
+          "display_value": "3b4ce6b873ab07505766fda14ab8b74d"
+        }
+      ]
+    },
+    "x_2120492_athidhi_department": {
+      "count": 0,
+      "error": null,
+      "sample": []
+    },
+    "x_2120492_athidhi_staff_profile": {
+      "count": 0,
+      "error": null,
+      "sample": []
+    },
+    "x_2120492_athidhi_restaurant": {
+      "count": 1,
+      "error": null,
+      "sample": [
+        {
+          "sys_id": "774ce6b873ab07505766fda14ab8b723",
+          "display_value": "Godavari Ruchulu"
+        }
+      ]
+    },
+    "x_2120492_athidhi_menu": {
+      "count": 1,
+      "error": null,
+      "sample": [
+        {
+          "sys_id": "b34ce6b873ab07505766fda14ab8b724",
+          "display_value": "Athidhi All-Day Dining"
+        }
+      ]
+    },
+    "x_2120492_athidhi_menu_item": {
+      "count": 16,
+      "error": null,
+      "sample": [
+        {
+          "sys_id": "0551b51973630b505766fda14ab8b739",
+          "display_value": "Crispy Andhra Paneer 65"
+        },
+        {
+          "sys_id": "334ce6b873ab07505766fda14ab8b740",
+          "display_value": "Hyderabadi Dum Biryani"
+        },
+        {
+          "sys_id": "3f4ce6b873ab07505766fda14ab8b73e",
+          "display_value": "Pesarattu Upma"
+        }
+      ]
+    },
+    "x_2120492_athidhi_service_catalog_item": {
+      "count": 0,
+      "error": null,
+      "sample": []
+    },
+    "x_2120492_athidhi_service_request": {
+      "count": 29,
+      "error": null,
+      "sample": [
+        {
+          "sys_id": "15c8fdb473e307505766fda14ab8b7ae",
+          "display_value": "15c8fdb473e307505766fda14ab8b7ae"
+        },
+        {
+          "sys_id": "18ebe26173e78b505766fda14ab8b7e6",
+          "display_value": "18ebe26173e78b505766fda14ab8b7e6"
+        },
+        {
+          "sys_id": "2aaca57c736307505766fda14ab8b79f",
+          "display_value": "2aaca57c736307505766fda14ab8b79f"
+        }
+      ]
+    },
+    "x_2120492_athidhi_work_task": {
+      "count": 34,
+      "error": null,
+      "sample": [
+        {
+          "sys_id": "12cbf1fc73e307505766fda14ab8b730",
+          "display_value": "12cbf1fc73e307505766fda14ab8b730"
+        },
+        {
+          "sys_id": "131ea5b073a307505766fda14ab8b777",
+          "display_value": "131ea5b073a307505766fda14ab8b777"
+        },
+        {
+          "sys_id": "16cbf1fc73e307505766fda14ab8b736",
+          "display_value": "16cbf1fc73e307505766fda14ab8b736"
+        }
+      ]
+    },
+    "x_2120492_athidhi_housekeeping_task": {
+      "count": 4,
+      "error": null,
+      "sample": [
+        {
+          "sys_id": "12cbf1fc73e307505766fda14ab8b750",
+          "display_value": "12cbf1fc73e307505766fda14ab8b750"
+        },
+        {
+          "sys_id": "171ea5b073a307505766fda14ab8b7a1",
+          "display_value": "171ea5b073a307505766fda14ab8b7a1"
+        },
+        {
+          "sys_id": "65c8fdb473e307505766fda14ab8b7e7",
+          "display_value": "65c8fdb473e307505766fda14ab8b7e7"
+        }
+      ]
+    },
+    "x_2120492_athidhi_maintenance_request": {
+      "count": 3,
+      "error": null,
+      "sample": [
+        {
+          "sys_id": "11c8fdb473e307505766fda14ab8b7d0",
+          "display_value": "11c8fdb473e307505766fda14ab8b7d0"
+        },
+        {
+          "sys_id": "42baf9b873e307505766fda14ab8b7ee",
+          "display_value": "42baf9b873e307505766fda14ab8b7ee"
+        },
+        {
+          "sys_id": "dacbf1fc73e307505766fda14ab8b736",
+          "display_value": "dacbf1fc73e307505766fda14ab8b736"
+        }
+      ]
+    },
+    "x_2120492_athidhi_food_order": {
+      "count": 11,
+      "error": null,
+      "sample": [
+        {
+          "sys_id": "35fe4b2573eb8b505766fda14ab8b756",
+          "display_value": "35fe4b2573eb8b505766fda14ab8b756"
+        },
+        {
+          "sys_id": "53e04f69736b8b505766fda14ab8b713",
+          "display_value": "53e04f69736b8b505766fda14ab8b713"
+        },
+        {
+          "sys_id": "6edd07a173eb8b505766fda14ab8b70b",
+          "display_value": "6edd07a173eb8b505766fda14ab8b70b"
+        }
+      ]
+    },
+    "x_2120492_athidhi_food_order_item": {
+      "count": 15,
+      "error": null,
+      "sample": [
+        {
+          "sys_id": "1cf00f69736b8b505766fda14ab8b742",
+          "display_value": "1cf00f69736b8b505766fda14ab8b742"
+        },
+        {
+          "sys_id": "26dd07a173eb8b505766fda14ab8b70e",
+          "display_value": "26dd07a173eb8b505766fda14ab8b70e"
+        },
+        {
+          "sys_id": "2be04f69736b8b505766fda14ab8b71b",
+          "display_value": "2be04f69736b8b505766fda14ab8b71b"
+        }
+      ]
+    },
+    "x_2120492_athidhi_incident": {
+      "count": 0,
+      "error": null,
+      "sample": []
+    },
+    "x_2120492_athidhi_inventory_item": {
+      "count": 19,
+      "error": null,
+      "sample": [
+        {
+          "sys_id": "0b04c4957327c7505766fda14ab8b7a0",
+          "display_value": "Pure Desi Ghee (Godavari)"
+        },
+        {
+          "sys_id": "2304c89973e3c7505766fda14ab8b773",
+          "display_value": "Country Chicken & Tender Mutton"
+        },
+        {
+          "sys_id": "2f04c4957327c7505766fda14ab8b7d1",
+          "display_value": "Guntur Red Chillies & Spices Pack"
+        }
+      ]
+    },
+    "x_2120492_athidhi_inventory_reorder": {
+      "count": 3,
+      "error": null,
+      "sample": [
+        {
+          "sys_id": "86baf9b873e307505766fda14ab8b7f0",
+          "display_value": "86baf9b873e307505766fda14ab8b7f0"
+        },
+        {
+          "sys_id": "91c8fdb473e307505766fda14ab8b7d6",
+          "display_value": "91c8fdb473e307505766fda14ab8b7d6"
+        },
+        {
+          "sys_id": "dacbf1fc73e307505766fda14ab8b73a",
+          "display_value": "dacbf1fc73e307505766fda14ab8b73a"
+        }
+      ]
+    },
+    "x_2120492_athidhi_inventory_transaction": {
+      "count": 43,
+      "error": null,
+      "sample": [
+        {
+          "sys_id": "0034c8957327c7505766fda14ab8b74d",
+          "display_value": "0034c8957327c7505766fda14ab8b74d"
+        },
+        {
+          "sys_id": "1034c8957327c7505766fda14ab8b7c6",
+          "display_value": "1034c8957327c7505766fda14ab8b7c6"
+        },
+        {
+          "sys_id": "152488957327c7505766fda14ab8b752",
+          "display_value": "152488957327c7505766fda14ab8b752"
+        }
+      ]
+    },
+    "x_2120492_athidhi_notification": {
+      "count": 0,
+      "error": "HTTP 400 Bad Request",
+      "sample": []
+    },
+    "x_2120492_athidhi_amenity": {
+      "count": 12,
+      "error": null,
+      "sample": [
+        {
+          "sys_id": "05d14be9736b8b505766fda14ab8b7b2",
+          "display_value": "24/7 Chief Concierge Desk"
+        },
+        {
+          "sys_id": "0ed14be9736b8b505766fda14ab8b7ae",
+          "display_value": "Daily Herbal Housekeeping & Turndown"
+        },
+        {
+          "sys_id": "14d10be9736b8b505766fda14ab8b7d2",
+          "display_value": "Fitness & Yoga Pavilion"
+        }
+      ]
+    }
+  },
+  "users": [
+    {
+      "sys_id": "98b1510767113200d109199672415adc",
+      "user_name": "sharedservice.worker",
+      "name": "sharedservice.worker [DO NOT DELETE] Agent Intelligence Plug-in",
+      "email": "",
+      "active": "true"
+    },
+    {
+      "sys_id": "6816f79cc0a8016401c5a33be04be441",
+      "user_name": "admin",
+      "name": "System Administrator",
+      "email": "admin@example.com",
+      "active": "true"
+    }
+  ],
+  "roles": [
+    {
+      "sys_id": "0519fb33734fc7505766fda14ab8b750",
+      "name": "x_2120492_telegr_0.user",
+      "description": "Default user role"
+    },
+    {
+      "sys_id": "065db4321e1346b6926dc636e3b16702",
+      "name": "x_2120492_ai_hot_0.guest",
+      "description": "Guest role for hotel customers"
+    },
+    {
+      "sys_id": "0e2c8b4a8bd0443fb576b6f6b6349fbe",
+      "name": "x_2120492_athidhi.manager",
+      "description": "Athidhi Services: Hotel Operations Manager overseeing all departments, escalations, and reports"
+    },
+    {
+      "sys_id": "14b2711581714f908d390de0d6614acf",
+      "name": "x_2120492_ai_hot_0.workspace_admin",
+      "description": "Workspace admin access for hotel administrators"
+    },
+    {
+      "sys_id": "240a492786cd43859dd397028582ac16",
+      "name": "x_2120492_athidhi.receptionist",
+      "description": "Athidhi Services: Front Desk Receptionist for check-in, check-out, reservations, and guest management"
+    },
+    {
+      "sys_id": "2425b47201e24643815f932a8e9229ee",
+      "name": "x_2120492_ai_hot_0.workspace_staff",
+      "description": "Workspace access for hotel staff"
+    },
+    {
+      "sys_id": "3e9f6959b3014deca7ed1004952c0462",
+      "name": "x_2120492_athidhi.maintenance",
+      "description": "Athidhi Services: Maintenance Technician for repairs, work orders, and facilities upkeep"
+    },
+    {
+      "sys_id": "60d97689b92242dc9ecfab769c37a337",
+      "name": "x_2120492_ai_hot_0.manager",
+      "description": "Hotel manager role with supervisory access"
+    },
+    {
+      "sys_id": "6fd099629ad741e9bbd09b711082bd44",
+      "name": "x_2120492_ai_hot_0.admin",
+      "description": "Full system administrator role"
+    },
+    {
+      "sys_id": "7a58b2b3dd1e4586ad7b6fb331fb8788",
+      "name": "x_2120492_athidhi.guest",
+      "description": "Athidhi Services: Hotel Guest with access to self-service portal, room amenities, and service requests"
+    },
+    {
+      "sys_id": "8f68f11dd010432ba80972aa8ac2b77d",
+      "name": "x_2120492_athidhi.housekeeping",
+      "description": "Athidhi Services: Housekeeping Staff for room cleaning, turn-down, and room status updates"
+    },
+    {
+      "sys_id": "aec4b08173eb47505766fda14ab8b73f",
+      "name": "x_2120492_athidhi.staff",
+      "description": "Athidhi Services: Staff Operations for central dispatch, triage, and task assignments"
+    },
+    {
+      "sys_id": "b45ac46436c14974b223c8bff451f7e8",
+      "name": "x_2120492_athidhi.admin",
+      "description": "Athidhi Services: System Administrator with full application configuration and AI setup privileges"
+    },
+    {
+      "sys_id": "bd9b587c1f9047609d32f4eea97e73bb",
+      "name": "x_2120492_athidhi.restaurant",
+      "description": "Athidhi Services: Food and Beverage staff for restaurant orders, dining reservations, and room service"
+    },
+    {
+      "sys_id": "bec4b08173eb47505766fda14ab8b7a7",
+      "name": "x_2120492_athidhi.worker",
+      "description": "Athidhi Services: Field Worker for touch-friendly personal task execution"
+    },
+    {
+      "sys_id": "c48750a5b7fe4cf3882af0d6311ae9fe",
+      "name": "x_2120492_ai_hot_0.restaurant",
+      "description": "Restaurant and food service staff role"
+    },
+    {
+      "sys_id": "e4b0422c7f494fdc9e78bc5ede2f9b3b",
+      "name": "x_2120492_ai_hot_0.receptionist",
+      "description": "Front desk receptionist role"
+    },
+    {
+      "sys_id": "f019fb33734fc7505766fda14ab8b712",
+      "name": "x_2120492_telegr_0.admin",
+      "description": "Default admin role"
+    },
+    {
+      "sys_id": "fce2941eb66a44559817b5fbd844956d",
+      "name": "x_2120492_ai_hot_0.housekeeping",
+      "description": "Housekeeping staff role"
+    },
+    {
+      "sys_id": "ff863b83366a4575a87b59956e05f6e6",
+      "name": "x_2120492_ai_hot_0.maintenance",
+      "description": "Maintenance and engineering staff role"
+    }
+  ],
+  "groups": [],
+  "group_members": [
+    {
+      "user": "f6911038530360100999ddeeff7b12b3",
+      "group": "c38f00f4530360100999ddeeff7b1298"
+    },
+    {
+      "user": "46c1293aa9fe1981000dc753e75ebeee",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "46c6f9efa9fe198101ddf5eed9adf6e7",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "506c0f9cd7011200f2d224837e61030f",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "cf1ec0b4530360100999ddeeff7b129f",
+      "group": "c38f00f4530360100999ddeeff7b1298"
+    },
+    {
+      "user": "9ee1b13dc6112271007f9d0efdb69cd0",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "b9377c460b0131109dae8a8db777b295",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "9112fd0dc3313000bac1addbdfba8f95",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "15e68e6e737503105766fda14ab8b789",
+      "group": "72910dd8779050108a370870a81061a9"
+    },
+    {
+      "user": "b6bad6c5c73003005f1b78d48b97632a",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "8ff5b254b33213005e3de13516a8dcf7",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "b6b364e253131300e321ddeeff7b121b",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "be82abf03710200044e0bfc8bcbe5d1c",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "38cb3f173b331300ad3cc9bb34efc4d6",
+      "group": "0c4e7b573b331300ad3cc9bb34efc461"
+    },
+    {
+      "user": "c97024fe53271300e321ddeeff7b1233",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "9142b90dc3313000bac1addbdfba8f8d",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "5137153cc611227c000bbd1bd8cd2007",
+      "group": "1c590685c0a8018b2a473a7159ff5d9a"
+    },
+    {
+      "user": "5137153cc611227c000bbd1bd8cd2005",
+      "group": "1c590685c0a8018b2a473a7159ff5d9a"
+    },
+    {
+      "user": "f298d2d2c611227b0106c6be7f154bc8",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "c83e4e70df3201004d7772d93df2631f",
+      "group": "8a4dde73c6112278017a6a4baf547aa7"
+    },
+    {
+      "user": "d3dbbf173b331300ad3cc9bb34efc466",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "5137153cc611227c000bbd1bd8cd2005",
+      "group": "287ebd7da9fe198100f92cc8d1d2154e"
+    },
+    {
+      "user": "681b365ec0a80164000fb0b05854a0cd",
+      "group": "287ebd7da9fe198100f92cc8d1d2154e"
+    },
+    {
+      "user": "681b365ec0a80164000fb0b05854a0cd",
+      "group": "287ee6fea9fe198100ada7950d0b1b73"
+    },
+    {
+      "user": "c97024fe53271300e321ddeeff7b1233",
+      "group": "b85d44954a3623120004689b2d5dd60a"
+    },
+    {
+      "user": "f2c0b27247702000cdd1706eecde27c8",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "c97024fe53271300e321ddeeff7b1233",
+      "group": "26b8a93db7517210693cfeb0be11a93c"
+    },
+    {
+      "user": "712150f4530360100999ddeeff7b1227",
+      "group": "c38f00f4530360100999ddeeff7b1298"
+    },
+    {
+      "user": "26fbff173b331300ad3cc9bb34efc4bd",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "0adf9f0fff3522100d1dffffffffffbf",
+      "group": "c9fe7d2b37a16a100d1dd25174924baf"
+    },
+    {
+      "user": "62d78687c0a8010e00b3d84178adc913",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "681b365ec0a80164000fb0b05854a0cd",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "6816f79cc0a8016401c5a33be04be441",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "73ab3f173b331300ad3cc9bb34efc4df",
+      "group": "6fcd3b573b331300ad3cc9bb34efc447"
+    },
+    {
+      "user": "645e03b0eb32010045e1a5115206feb5",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "645e03b0eb32010045e1a5115206feb5",
+      "group": "69928da1eb32010045e1a5115206fee8"
+    },
+    {
+      "user": "63b4c2cd0bb23200ecfd818393673a95",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "67e3d7e6532c33005e0addeeff7b12f1",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "6816f79cc0a8016401c5a33be04be441",
+      "group": "cfcbad03d711110050f5edcb9e61038f"
+    },
+    {
+      "user": "f8588956937002002dcef157b67ffb98",
+      "group": "a715cd759f2002002920bde8132e7018"
+    },
+    {
+      "user": "8c17c7f0eb32010045e1a5115206fe17",
+      "group": "69928da1eb32010045e1a5115206fee8"
+    },
+    {
+      "user": "babb4639b76233004fbc2089ee11a97f",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "7e3bbb173b331300ad3cc9bb34efc4a8",
+      "group": "0c4e7b573b331300ad3cc9bb34efc461"
+    },
+    {
+      "user": "67484bb0eb32010045e1a5115206fee6",
+      "group": "1be289a1eb32010045e1a5115206fea1"
+    },
+    {
+      "user": "b0f31e5673500010c2e7660c4cf6a711",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "bc8bfb173b331300ad3cc9bb34efc4f5",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "800b174138d089c868d09de320f9833b",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "94a28f10b37213005e3de13516a8dcd4",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "d3dbbf173b331300ad3cc9bb34efc466",
+      "group": "0c4e7b573b331300ad3cc9bb34efc461"
+    },
+    {
+      "user": "bc1aa73cffc63210f8ecffffffffff05",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "cf1ec0b4530360100999ddeeff7b129f",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "7e3bbb173b331300ad3cc9bb34efc4a8",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "97000fcc0a0a0a6e0104ca999f619e5b",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "bba5cf680b982300cac6c08393673a42",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "a8f98bb0eb32010045e1a5115206fe3a",
+      "group": "1be289a1eb32010045e1a5115206fea1"
+    },
+    {
+      "user": "d3383a875b0132003d1c484c11f91a5b",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "f8588956937002002dcef157b67ffb98",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "97000fcc0a0a0a6e0104ca999f619e5b",
+      "group": "5418973d93a0220050bef157b67ffbe6"
+    },
+    {
+      "user": "8d56406a0a0a0a6b004070b354aada28",
+      "group": "5418973d93a0220050bef157b67ffbe6"
+    },
+    {
+      "user": "f6911038530360100999ddeeff7b12b3",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "fa6dd223ff02110053ccffffffffff06",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "97000fcc0a0a0a6e0104ca999f619e5b",
+      "group": "26b8a93db7517210693cfeb0be11a93c"
+    },
+    {
+      "user": "0adf9f0fff3522100d1dffffffffffbf",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "443193dcd7011200f2d224837e61037d",
+      "group": "0a52d3dcd7011200f2d224837e6103f2"
+    },
+    {
+      "user": "04d8edbdb7517210693cfeb0be11a9ca",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "0e826bf03710200044e0bfc8bcbe5d7c",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "1832fbe1d701120035ae23c7ce610369",
+      "group": "26b8a93db7517210693cfeb0be11a93c"
+    },
+    {
+      "user": "04d8edbdb7517210693cfeb0be11a9ca",
+      "group": "26b8a93db7517210693cfeb0be11a93c"
+    },
+    {
+      "user": "0a826bf03710200044e0bfc8bcbe5d7a",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "1832fbe1d701120035ae23c7ce610369",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "38cb3f173b331300ad3cc9bb34efc4d6",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "46c4aeb7a9fe1981002bbd372644a37b",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "5137153cc611227c000bbd1bd8cd2007",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "712150f4530360100999ddeeff7b1227",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "38cb3f173b331300ad3cc9bb34efc4d6",
+      "group": "6fcd3b573b331300ad3cc9bb34efc447"
+    },
+    {
+      "user": "3883f4c0730123002728660c4cf6a754",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "5137153cc611227c000bbd1bd8cd2006",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "49339c38530360100999ddeeff7b1242",
+      "group": "c38f00f4530360100999ddeeff7b1298"
+    },
+    {
+      "user": "b9377c460b0131109dae8a8db777b295",
+      "group": "a715cd759f2002002920bde8132e7018"
+    },
+    {
+      "user": "46ca0887a9fe19810191e08e51927ebf",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "46d44a23a9fe19810012d100cca80666",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "5137153cc611227c000bbd1bd8cd2005",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "71c3b0d71b302000aebbfbcd2c0713a8",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "c4261a9673500010c2e7660c4cf6a715",
+      "group": "10e39a5673500010c2e7660c4cf6a7ef"
+    },
+    {
+      "user": "45a1b90dc3313000bac1addbdfba8fe8",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "46b87022a9fe198101a78787e40d7547",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "46bbf3daa9fe1981001fd0ccdd391f83",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "46d96f57a9fe198101947a9620895886",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "714e5fbe3bbe3a50e1716b8aa4e45ada",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "71826bf03710200044e0bfc8bcbe5d3b",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "e41683a80b982300cac6c08393673a11",
+      "group": "3cc3c7680b982300cac6c08393673a03"
+    },
+    {
+      "user": "26fbff173b331300ad3cc9bb34efc4bd",
+      "group": "6fcd3b573b331300ad3cc9bb34efc447"
+    },
+    {
+      "user": "63b4c2cd0bb23200ecfd818393673a95",
+      "group": "12a586cd0bb23200ecfd818393673a30"
+    },
+    {
+      "user": "73ab3f173b331300ad3cc9bb34efc4df",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "8d5938070a0a0a6b00f8a5e8d3375606",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "26fbff173b331300ad3cc9bb34efc4bd",
+      "group": "0c4e7b573b331300ad3cc9bb34efc461"
+    },
+    {
+      "user": "737630419376220050bef157b67ffbec",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "8d56406a0a0a0a6b004070b354aada28",
+      "group": "5ee74940b70022108d4406dd1e11a918"
+    },
+    {
+      "user": "b0f31e5673500010c2e7660c4cf6a711",
+      "group": "10e39a5673500010c2e7660c4cf6a7ef"
+    },
+    {
+      "user": "8e578dba731313005754660c4cf6a795",
+      "group": "36c741fa731313005754660c4cf6a70d"
+    }
+  ],
+  "portals": [
+    {
+      "sys_id": "0d3fa8649f131200b18a7feea57fcf7a",
+      "title": "CAB Workbench",
+      "url_suffix": "cab",
+      "sp_theme": "49d3c5809f231200b18a7feea57fcf9b",
+      "sp_header": null
+    },
+    {
+      "sys_id": "1565b4c173eb47505766fda14ab8b766",
+      "title": "Athidhi Housekeeping Portal",
+      "url_suffix": "housekeeping",
+      "sp_theme": "b2b31b8573af87505766fda14ab8b761",
+      "sp_header": null
+    },
+    {
+      "sys_id": "246574c173eb47505766fda14ab8b780",
+      "title": "Athidhi Guest Portal",
+      "url_suffix": "guest",
+      "sp_theme": "c18f878d736f87505766fda14ab8b76e",
+      "sp_header": null
+    },
+    {
+      "sys_id": "26f2fffb77322300454792718a1061e5",
+      "title": "Mobile Employee Service Portal",
+      "url_suffix": "mesp",
+      "sp_theme": "d02ef73b77b011108f64b2487b5a9911",
+      "sp_header": null
+    },
+    {
+      "sys_id": "3c7538c173eb47505766fda14ab8b7ef",
+      "title": "Athidhi Administrator Portal",
+      "url_suffix": "admin",
+      "sp_theme": "03b31b8573af87505766fda14ab8b7b3",
+      "sp_header": null
+    },
+    {
+      "sys_id": "45d6680fdb52220099f93691f0b8f5ad",
+      "title": "Knowledge Portal",
+      "url_suffix": "kb",
+      "sp_theme": "60bed96c93131210aa38860754891827",
+      "sp_header": null
+    },
+    {
+      "sys_id": "4a65b4c173eb47505766fda14ab8b7ad",
+      "title": "Athidhi Maintenance Portal",
+      "url_suffix": "maintenance",
+      "sp_theme": "bab31b8573af87505766fda14ab8b76a",
+      "sp_header": null
+    },
+    {
+      "sys_id": "5ef362fa5b4132003d1c484c11f91a05",
+      "title": "Benchmarks",
+      "url_suffix": "benchmarks",
+      "sp_theme": "166e16f65b4132003d1c484c11f91a70",
+      "sp_header": null
+    },
+    {
+      "sys_id": "6265f4c173eb47505766fda14ab8b74d",
+      "title": "Athidhi Restaurant Portal",
+      "url_suffix": "restaurant",
+      "sp_theme": "83b31b8573af87505766fda14ab8b774",
+      "sp_header": null
+    },
+    {
+      "sys_id": "70cd9f3b734b13001fdae9c54cf6a72f",
+      "title": "Employee Center",
+      "url_suffix": "esc",
+      "sp_theme": "ee2e485f9c0b5250f877097911a1a148",
+      "sp_header": null
+    },
+    {
+      "sys_id": "77181a4fb73302102c446f08ee11a9b7",
+      "title": "Performance Analyzer",
+      "url_suffix": "perf",
+      "sp_theme": null,
+      "sp_header": null
+    },
+    {
+      "sys_id": "7d7d2d23937a4914b364ea09d0d413ec",
+      "title": "AI Hotel Guest Portal",
+      "url_suffix": "ai_hotel_guest",
+      "sp_theme": "c74f418694f3400ebff99c6f06478cec",
+      "sp_header": null
+    },
+    {
+      "sys_id": "81b75d3147032100ba13a5554ee4902b",
+      "title": "Service Portal ",
+      "url_suffix": "sp",
+      "sp_theme": "281507c44317d210ca4c1f425db8f2fd",
+      "sp_header": null
+    },
+    {
+      "sys_id": "8765f4c173eb47505766fda14ab8b7ae",
+      "title": "Athidhi Staff Operations Portal",
+      "url_suffix": "staff",
+      "sp_theme": "43b31b8573af87505766fda14ab8b78a",
+      "sp_header": null
+    },
+    {
+      "sys_id": "a36538c173eb47505766fda14ab8b72d",
+      "title": "Athidhi Worker Portal",
+      "url_suffix": "worker",
+      "sp_theme": "03b31b8573af87505766fda14ab8b7a0",
+      "sp_header": null
+    },
+    {
+      "sys_id": "b3e7ae7073ab07505766fda14ab8b79b",
+      "title": "Athidhi Services",
+      "url_suffix": "athidhi",
+      "sp_theme": "79315153cb33310000f8d856634c9c4b",
+      "sp_header": null
+    },
+    {
+      "sys_id": "cd65b4c173eb47505766fda14ab8b704",
+      "title": "Athidhi Front Desk Portal",
+      "url_suffix": "frontdesk",
+      "sp_theme": "3ab31b8573af87505766fda14ab8b757",
+      "sp_header": null
+    },
+    {
+      "sys_id": "d47538c173eb47505766fda14ab8b78e",
+      "title": "Athidhi Manager Portal",
+      "url_suffix": "manager",
+      "sp_theme": "0bb31b8573af87505766fda14ab8b7a9",
+      "sp_header": null
+    },
+    {
+      "sys_id": "db57a91047001200ba13a5554ee49050",
+      "title": "SP Configuration",
+      "url_suffix": "sp_config",
+      "sp_theme": "a7a6e78277002300a6e592718a10617a",
+      "sp_header": null
+    },
+    {
+      "sys_id": "fe5506d03b0203008ed00d8044efc45d",
+      "title": "Service Workspace Portal",
+      "url_suffix": "swp",
+      "sp_theme": "d0c8540553033010c11addeeff7b1255",
+      "sp_header": null
+    }
+  ],
+  "dependency_map_breakages": []
+}

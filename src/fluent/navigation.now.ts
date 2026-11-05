@@ -835,3 +835,89 @@ Record({
         active: true,
     },
 })
+
+// =========================================================================
+// MODULE GROUP: ROLE-SPECIFIC PORTALS & WORKSPACES
+// =========================================================================
+Record({
+    $id: Now.ID['mod_sep_portals'],
+    table: 'sys_app_module',
+    data: {
+        title: 'Portals & Workspaces',
+        application: athidhiApplicationMenu,
+        link_type: 'SEPARATOR',
+        order: 5,
+        roles: [managerRole, adminRole, receptionistRole, housekeepingRole, maintenanceRole, restaurantRole, guestRole],
+        active: true,
+    },
+})
+
+Record({
+    $id: Now.ID['mod_portal_manager'],
+    table: 'sys_app_module',
+    data: {
+        title: 'Manager Operations Portal',
+        application: athidhiApplicationMenu,
+        link_type: 'DIRECT',
+        query: 'x_2120492_athidhi_manager_portal.do',
+        order: 6,
+        roles: [managerRole, adminRole],
+        active: true,
+    },
+})
+
+Record({
+    $id: Now.ID['mod_portal_admin'],
+    table: 'sys_app_module',
+    data: {
+        title: 'Administrator Portal',
+        application: athidhiApplicationMenu,
+        link_type: 'DIRECT',
+        query: 'x_2120492_athidhi_admin_portal.do',
+        order: 7,
+        roles: [adminRole],
+        active: true,
+    },
+})
+
+Record({
+    $id: Now.ID['mod_portal_staff'],
+    table: 'sys_app_module',
+    data: {
+        title: 'Staff Operations Portal',
+        application: athidhiApplicationMenu,
+        link_type: 'DIRECT',
+        query: 'x_2120492_athidhi_staff_portal.do',
+        order: 8,
+        roles: [receptionistRole, restaurantRole, managerRole, adminRole],
+        active: true,
+    },
+})
+
+Record({
+    $id: Now.ID['mod_portal_worker'],
+    table: 'sys_app_module',
+    data: {
+        title: 'Worker Task Board',
+        application: athidhiApplicationMenu,
+        link_type: 'DIRECT',
+        query: 'x_2120492_athidhi_worker_portal.do',
+        order: 9,
+        roles: [housekeepingRole, maintenanceRole, managerRole, adminRole],
+        active: true,
+    },
+})
+
+Record({
+    $id: Now.ID['mod_notifications_list'],
+    table: 'sys_app_module',
+    data: {
+        title: 'System & Guest Notifications',
+        application: athidhiApplicationMenu,
+        name: 'x_2120492_athidhi_notification',
+        link_type: 'LIST',
+        order: 750,
+        roles: [managerRole, adminRole],
+        active: true,
+    },
+})
